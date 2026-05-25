@@ -736,6 +736,8 @@
     </div>
   </div>
   <div class="header-right">
+    <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3)" id="userInfo"></span>
+    <button class="btn btn-ghost" style="padding:6px 12px;font-size:11px" onclick="handleLogout()">🚪 登出</button>
     <span class="date-badge" id="todayDate">📅 載入中…</span>
     <button class="btn btn-ghost" onclick="syncData()">🔄 同步數據</button>
     <button class="btn btn-primary" onclick="exportReport()">📄 匯出報告</button>
@@ -1134,7 +1136,33 @@
 
 <div id="toast">✓ 操作成功</div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+// Supabase Auth Guard
+const SUPABASE_URL = 'https://xbdrafndbcriqkkhzpup.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_w_B5Pl_v4-9hiMjRNyGoOQ_nFJlLCax';
+const { createClient } = supabase;
+const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+async function checkAuth() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) {
+    window.location.href = 'login.html';
+    return;
+  }
+  // Show user info in header
+  const user = session.user;
+  const name = user.user_metadata?.full_name || user.email;
+  const userEl = document.getElementById('userInfo');
+  if (userEl) userEl.textContent = name;
+}
+checkAuth();
+
+async function handleLogout() {
+  await sb.auth.signOut();
+  window.location.href = 'login.html';
+}
+</script>
 // ─── DATA ────────────────────────────────────────────────
 const adsData = [
   { id:1, name:'發現茶桂花烏龍冷泡包', sub:'女性 28-40', status:'green', statusText:'表現優異', spend:1240, impression:148000, ctr:3.6, cpc:8.4, roas:5.2, purchase:42, action:'boost', rec:'增加 25% 預算，擴展相似受眾至女性 40-50' },

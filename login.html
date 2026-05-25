@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>發現茶 廣告成效系統 — 登入</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Mono:wght@400;500&family=Noto+Serif+TC:wght@300;400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #f0f2f0;
+    --card:      #ffffff;
+    --green:     #2d7a47;
+    --green2:    #4a9960;
+    --gold:      #b8860b;
+    --red:       #c0392b;
+    --text:      #1a2e1f;
+    --text2:     #4a6a52;
+    --text3:     #7a9a82;
+    --border:    rgba(74,130,90,0.15);
+  }
+
+  body {
+    font-family: 'Noto Serif TC', serif;
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 20%, rgba(45,122,71,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 80% 80%, rgba(74,153,96,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 440px;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-area {
+    text-align: center;
+    margin-bottom: 32px;
+    animation: fadeDown 0.6s ease;
+  }
+
+  .logo-icon {
+    width: 56px; height: 56px;
+    background: linear-gradient(135deg, var(--green), var(--green2));
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 16px rgba(45,122,71,0.25);
+  }
+
+  .logo-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+  }
+
+  .logo-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--text3);
+    text-transform: uppercase;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    padding: 36px;
+    box-shadow: 0 4px 24px rgba(45,122,71,0.08);
+    animation: fadeUp 0.6s ease 0.1s both;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 4px;
+    background: #e8ede8;
+    padding: 4px;
+    border-radius: 10px;
+    margin-bottom: 28px;
+  }
+
+  .tab {
+    flex: 1;
+    padding: 8px;
+    border-radius: 7px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text3);
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    transition: all 0.2s;
+    text-align: center;
+  }
+
+  .tab.active {
+    background: #fff;
+    color: var(--green);
+    font-weight: 600;
+    border: 1px solid rgba(45,122,71,0.2);
+    box-shadow: 0 1px 4px rgba(45,122,71,0.1);
+  }
+
+  .form-group {
+    margin-bottom: 18px;
+  }
+
+  label {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text2);
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px 14px;
+    background: #f4f7f4;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(45,122,71,0.08);
+    background: #fff;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 13px;
+    background: var(--green);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .btn:hover { background: #235f37; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(45,122,71,0.25); }
+  .btn:active { transform: translateY(0); }
+  .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+    color: var(--text3);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .msg {
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    margin-bottom: 16px;
+    display: none;
+  }
+  .msg.error { background: rgba(192,57,43,0.08); border: 1px solid rgba(192,57,43,0.2); color: var(--red); }
+  .msg.success { background: rgba(45,122,71,0.08); border: 1px solid rgba(45,122,71,0.2); color: var(--green); }
+  .msg.show { display: block; }
+
+  .footer-note {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+    animation: fadeUp 0.6s ease 0.2s both;
+  }
+
+  .loading-spinner {
+    display: inline-block;
+    width: 14px; height: 14px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="logo-area">
+    <div class="logo-icon">🍵</div>
+    <div class="logo-title">發現茶 廣告成效系統</div>
+    <div class="logo-sub">AD Intelligence · AI Driven · Teascovery</div>
+  </div>
+
+  <div class="card">
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('login')">登入</button>
+      <button class="tab" onclick="switchTab('register')">註冊</button>
+    </div>
+
+    <div id="msgBox" class="msg"></div>
+
+    <!-- 登入表單 -->
+    <div id="loginForm">
+      <div class="form-group">
+        <label>電子郵件</label>
+        <input type="email" id="loginEmail" placeholder="your@email.com" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label>密碼</label>
+        <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <button class="btn" id="loginBtn" onclick="handleLogin()">登入後台</button>
+    </div>
+
+    <!-- 註冊表單 -->
+    <div id="registerForm" style="display:none">
+      <div class="form-group">
+        <label>姓名</label>
+        <input type="text" id="regName" placeholder="您的名字">
+      </div>
+      <div class="form-group">
+        <label>電子郵件</label>
+        <input type="email" id="regEmail" placeholder="your@email.com" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label>密碼（至少 6 位）</label>
+        <input type="password" id="regPassword" placeholder="••••••••" autocomplete="new-password">
+      </div>
+      <button class="btn" id="registerBtn" onclick="handleRegister()">申請帳號</button>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    © 2026 茶中文化股份有限公司 · 僅限授權人員使用
+  </div>
+</div>
+
+<script>
+const SUPABASE_URL = 'https://xbdrafndbcriqkkhzpup.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_w_B5Pl_v4-9hiMjRNyGoOQ_nFJlLCax';
+const { createClient } = supabase;
+const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// Check if already logged in
+async function checkSession() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (session) {
+    window.location.href = 'index.html';
+  }
+}
+checkSession();
+
+function switchTab(tab) {
+  document.querySelectorAll('.tab').forEach((t,i) => {
+    t.classList.toggle('active', ['login','register'][i] === tab);
+  });
+  document.getElementById('loginForm').style.display = tab === 'login' ? 'block' : 'none';
+  document.getElementById('registerForm').style.display = tab === 'register' ? 'block' : 'none';
+  hideMsg();
+}
+
+function showMsg(text, type) {
+  const box = document.getElementById('msgBox');
+  box.textContent = text;
+  box.className = `msg ${type} show`;
+}
+function hideMsg() {
+  document.getElementById('msgBox').className = 'msg';
+}
+
+function setLoading(btnId, loading) {
+  const btn = document.getElementById(btnId);
+  if (loading) {
+    btn.disabled = true;
+    btn.innerHTML = '<span class="loading-spinner"></span>處理中…';
+  } else {
+    btn.disabled = false;
+    btn.innerHTML = btnId === 'loginBtn' ? '登入後台' : '申請帳號';
+  }
+}
+
+async function handleLogin() {
+  const email = document.getElementById('loginEmail').value.trim();
+  const password = document.getElementById('loginPassword').value;
+  if (!email || !password) { showMsg('❌ 請填入電子郵件與密碼', 'error'); return; }
+
+  setLoading('loginBtn', true);
+  hideMsg();
+
+  const { data, error } = await sb.auth.signInWithPassword({ email, password });
+
+  if (error) {
+    showMsg(`❌ ${error.message === 'Invalid login credentials' ? '帳號或密碼錯誤' : error.message}`, 'error');
+    setLoading('loginBtn', false);
+  } else {
+    showMsg('✓ 登入成功，正在跳轉…', 'success');
+    setTimeout(() => { window.location.href = 'index.html'; }, 800);
+  }
+}
+
+async function handleRegister() {
+  const name = document.getElementById('regName').value.trim();
+  const email = document.getElementById('regEmail').value.trim();
+  const password = document.getElementById('regPassword').value;
+
+  if (!name || !email || !password) { showMsg('❌ 請填寫所有欄位', 'error'); return; }
+  if (password.length < 6) { showMsg('❌ 密碼至少需要 6 個字元', 'error'); return; }
+
+  setLoading('registerBtn', true);
+  hideMsg();
+
+  const { data, error } = await sb.auth.signUp({
+    email, password,
+    options: { data: { full_name: name } }
+  });
+
+  if (error) {
+    showMsg(`❌ ${error.message}`, 'error');
+    setLoading('registerBtn', false);
+  } else {
+    showMsg('✓ 註冊成功！請確認電子郵件後即可登入。', 'success');
+    setLoading('registerBtn', false);
+  }
+}
+
+// Enter key support
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    const loginVisible = document.getElementById('loginForm').style.display !== 'none';
+    if (loginVisible) handleLogin();
+    else handleRegister();
+  }
+});
+</script>
+</body>
+</html>
