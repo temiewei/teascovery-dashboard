@@ -1954,6 +1954,8 @@ function saveGadsToken() {
   showApiStatus('✓ Google Ads Token 已儲存，切換到 Google Ads 頁籤即可載入真實數據', 'success');
   gadsLoaded = false;
 }
+
+async function saveAndSync() {
   const accountId = document.getElementById('fbAccountId').value.trim();
   const token = document.getElementById('fbToken').value.trim();
 
