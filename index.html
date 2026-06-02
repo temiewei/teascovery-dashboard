@@ -8,22 +8,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=DM+Mono:wght@300;400;500&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:         #f0f2f0;   /* 淺灰主背景 */
-    --bg2:        #ffffff;   /* 卡片白底 */
-    --bg3:        #e8ede8;   /* 輸入框灰綠 */
-    --border:     rgba(74,130,90,0.15);
-    --tea-green:  #2d7a47;   /* 主綠色 */
-    --tea-green2: #4a9960;   /* 次綠色 */
-    --tea-gold:   #b8860b;   /* 強調金 */
-    --tea-amber:  #c97a30;   /* 警告橙 */
-    --tea-red:    #c0392b;   /* 危險紅 */
-    --tea-muted:  #7aaa8a;   /* 柔和綠 */
-    --text:       #1a2e1f;   /* 主文字深綠黑 */
-    --text2:      #4a6a52;   /* 次要文字 */
-    --text3:      #7a9a82;   /* 弱化文字 */
-    --glow-green: rgba(45,122,71,0.10);
-    --glow-gold:  rgba(184,134,11,0.12);
-    --glow-red:   rgba(192,57,43,0.10);
+    --bg: #0d1117;
+    --bg2: #161b22;
+    --bg3: #1c2330;
+    --border: rgba(255,255,255,0.07);
+    --tea-green: #7cb98a;
+    --tea-gold: #c9a84c;
+    --tea-amber: #e8945a;
+    --tea-red: #e05c5c;
+    --tea-muted: #4a6358;
+    --text: #e8e4da;
+    --text2: #9ba89e;
+    --text3: #5a6a60;
+    --glow-green: rgba(124,185,138,0.15);
+    --glow-gold: rgba(201,168,76,0.15);
+    --glow-red: rgba(224,92,92,0.12);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -42,9 +41,9 @@
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 40% at 20% 10%, rgba(45,122,71,0.06) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 60% at 80% 80%, rgba(74,153,96,0.05) 0%, transparent 60%),
-      radial-gradient(ellipse 30% 30% at 50% 50%, rgba(184,134,11,0.03) 0%, transparent 60%);
+      radial-gradient(ellipse 60% 40% at 20% 10%, rgba(124,185,138,0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 80% 80%, rgba(201,168,76,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse 30% 30% at 50% 50%, rgba(232,148,90,0.03) 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
   }
@@ -58,9 +57,8 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid var(--border);
-    background: rgba(255,255,255,0.85);
+    background: rgba(13,17,23,0.8);
     backdrop-filter: blur(12px);
-    box-shadow: 0 1px 12px rgba(45,122,71,0.08);
   }
 
   .logo-area {
@@ -71,11 +69,10 @@
 
   .logo-icon {
     width: 40px; height: 40px;
-    background: linear-gradient(135deg, var(--tea-green), var(--tea-green2));
+    background: linear-gradient(135deg, var(--tea-green), var(--tea-gold));
     border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
     font-size: 20px;
-    box-shadow: 0 2px 8px rgba(45,122,71,0.3);
   }
 
   .logo-text { line-height: 1.2; }
@@ -83,7 +80,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 18px;
     font-weight: 700;
-    color: var(--tea-green);
+    color: var(--tea-gold);
     letter-spacing: 0.02em;
   }
   .logo-sub {
@@ -123,17 +120,17 @@
 
   .btn-primary {
     background: var(--tea-green);
-    color: #ffffff;
-    font-weight: 600;
+    color: #0d1117;
+    font-weight: 500;
   }
-  .btn-primary:hover { background: #235f37; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(45,122,71,0.3); }
+  .btn-primary:hover { background: #8fcca0; transform: translateY(-1px); }
 
   .btn-ghost {
     background: transparent;
     border: 1px solid var(--border);
     color: var(--text2);
   }
-  .btn-ghost:hover { border-color: var(--tea-green); color: var(--tea-green); background: var(--glow-green); }
+  .btn-ghost:hover { border-color: var(--tea-green); color: var(--tea-green); }
 
   .btn-danger {
     background: rgba(224,92,92,0.15);
@@ -212,12 +209,12 @@
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--tea-green), var(--tea-green2));
+    height: 2px;
+    background: linear-gradient(90deg, var(--tea-green), transparent);
     opacity: 0;
     transition: opacity 0.3s;
   }
-  .kpi-card:hover { border-color: rgba(45,122,71,0.3); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(45,122,71,0.12); }
+  .kpi-card:hover { border-color: rgba(124,185,138,0.2); transform: translateY(-2px); }
   .kpi-card:hover::before { opacity: 1; }
 
   .kpi-icon { font-size: 22px; margin-bottom: 12px; }
@@ -238,7 +235,7 @@
   .tabs {
     display: flex;
     gap: 4px;
-    background: #e8ede8;
+    background: var(--bg2);
     padding: 4px;
     border-radius: 10px;
     border: 1px solid var(--border);
@@ -258,13 +255,11 @@
     background: transparent;
   }
   .tab.active {
-    background: #ffffff;
+    background: var(--bg3);
     color: var(--tea-green);
-    border: 1px solid rgba(45,122,71,0.2);
-    box-shadow: 0 1px 6px rgba(45,122,71,0.12);
-    font-weight: 600;
+    border: 1px solid rgba(124,185,138,0.2);
   }
-  .tab:hover:not(.active) { color: var(--tea-green); background: rgba(45,122,71,0.05); }
+  .tab:hover:not(.active) { color: var(--text2); }
 
   .tab-content { display: none; }
   .tab-content.active { display: block; }
@@ -332,7 +327,7 @@
     vertical-align: middle;
   }
   tr:last-child td { border-bottom: none; }
-  tr:hover td { background: rgba(45,122,71,0.04); }
+  tr:hover td { background: rgba(255,255,255,0.02); }
 
   .ad-name { font-weight: 600; font-size: 13px; line-height: 1.4; max-width: 220px; }
   .ad-name small { display: block; font-size: 10px; color: var(--text3); font-weight: 400; margin-top: 2px; font-family: 'DM Mono', monospace; }
@@ -347,9 +342,9 @@
     font-size: 10px;
     white-space: nowrap;
   }
-  .status-badge.green { background: rgba(45,122,71,0.10); color: var(--tea-green); border: 1px solid rgba(45,122,71,0.25); }
-  .status-badge.gold { background: rgba(184,134,11,0.10); color: var(--tea-gold); border: 1px solid rgba(184,134,11,0.25); }
-  .status-badge.red { background: rgba(192,57,43,0.10); color: var(--tea-red); border: 1px solid rgba(192,57,43,0.25); }
+  .status-badge.green { background: rgba(124,185,138,0.12); color: var(--tea-green); border: 1px solid rgba(124,185,138,0.2); }
+  .status-badge.gold { background: rgba(201,168,76,0.12); color: var(--tea-gold); border: 1px solid rgba(201,168,76,0.2); }
+  .status-badge.red { background: rgba(224,92,92,0.12); color: var(--tea-red); border: 1px solid rgba(224,92,92,0.2); }
 
   .roas-bar {
     display: flex;
@@ -414,7 +409,7 @@
     justify-content: space-between;
   }
 
-  svg.chart { width: 100%; overflow: visible; background: transparent; }
+  svg.chart { width: 100%; overflow: visible; }
 
   /* ─── SOURCE BARS ──────────────────── */
   .source-list { display: flex; flex-direction: column; gap: 14px; }
@@ -453,7 +448,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(45,122,71,0.05);
+    background: rgba(124,185,138,0.04);
   }
 
   .ai-label {
@@ -679,7 +674,6 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 40px;
-    background: rgba(255,255,255,0.6);
   }
   .footer-text { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text3); letter-spacing: 0.06em; }
 
@@ -688,9 +682,9 @@
     position: fixed;
     bottom: 32px;
     right: 32px;
-    background: var(--tea-green);
-    border: none;
-    color: #ffffff;
+    background: var(--bg3);
+    border: 1px solid var(--tea-green);
+    color: var(--tea-green);
     padding: 12px 20px;
     border-radius: 8px;
     font-family: 'DM Mono', monospace;
@@ -700,7 +694,6 @@
     transform: translateY(10px);
     transition: all 0.3s;
     pointer-events: none;
-    box-shadow: 0 4px 16px rgba(45,122,71,0.35);
   }
   #toast.show { opacity: 1; transform: translateY(0); }
 
@@ -711,6 +704,55 @@
     transition: opacity 0.5s ease, transform 0.5s ease;
   }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── API MODAL ─────────────────────── */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(6px); z-index: 500;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 16px; width: 560px; max-width: 95vw;
+    max-height: 90vh; overflow-y: auto;
+    animation: modalIn 0.3s ease;
+  }
+  @keyframes modalIn { from { transform: translateY(20px); opacity: 0; } to { transform: none; opacity: 1; } }
+  .modal-header {
+    padding: 24px 28px 0;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .modal-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--tea-gold); }
+  .modal-close { background: none; border: none; color: var(--text3); font-size: 20px; cursor: pointer; line-height: 1; padding: 4px; }
+  .modal-close:hover { color: var(--text); }
+  .modal-body { padding: 0 28px 28px; }
+  .modal-section-title {
+    font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--text3); margin: 20px 0 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .modal-section-title::before { content: ''; flex: none; width: 16px; height: 1px; background: var(--border); }
+  .api-status {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    padding: 3px 10px; border-radius: 20px;
+  }
+  .api-status.connected { background: rgba(124,185,138,0.12); color: var(--tea-green); border: 1px solid rgba(124,185,138,0.25); }
+  .api-status.disconnected { background: rgba(90,106,96,0.2); color: var(--text3); border: 1px solid var(--border); }
+  .api-status.error { background: rgba(224,92,92,0.12); color: var(--tea-red); border: 1px solid rgba(224,92,92,0.25); }
+  .api-status.loading { background: rgba(201,168,76,0.12); color: var(--tea-gold); border: 1px solid rgba(201,168,76,0.25); }
+  .test-btn {
+    padding: 6px 14px; border-radius: 6px; font-family: 'DM Mono', monospace;
+    font-size: 11px; cursor: pointer; border: 1px solid var(--border);
+    background: transparent; color: var(--text2); transition: all 0.2s;
+  }
+  .test-btn:hover { border-color: var(--tea-green); color: var(--tea-green); }
+  .form-hint { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text3); margin-top: 6px; line-height: 1.6; }
+  .form-hint a { color: var(--tea-green); text-decoration: none; }
+  .form-hint a:hover { text-decoration: underline; }
 
   /* ─── RESPONSIVE ─────────────────────── */
   @media (max-width: 900px) {
@@ -736,9 +778,8 @@
     </div>
   </div>
   <div class="header-right">
-    <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3)" id="userInfo"></span>
-    <button class="btn btn-ghost" style="padding:6px 12px;font-size:11px" onclick="handleLogout()">🚪 登出</button>
-    <span class="date-badge" id="todayDate">📅 載入中…</span>
+    <span class="date-badge" id="dateBadge">📅 ...</span>
+    <button class="btn btn-ghost" onclick="openApiSettings()">🔌 API 設定</button>
     <button class="btn btn-ghost" onclick="syncData()">🔄 同步數據</button>
     <button class="btn btn-primary" onclick="exportReport()">📄 匯出報告</button>
   </div>
@@ -803,48 +844,9 @@
   <div class="section fade-in" style="margin-top:28px">
     <div class="tabs">
       <button class="tab active" onclick="switchTab('ads')">📊 FB 廣告診斷</button>
-      <button class="tab" onclick="switchTab('gads')">🔍 Google Ads</button>
       <button class="tab" onclick="switchTab('ga4')">🌐 GA4 流量分析</button>
-      <button class="tab" onclick="switchTab('shop91')">🛒 91APP 電商</button>
       <button class="tab" onclick="switchTab('ai')">🤖 AI 每日診斷</button>
-      <button class="tab" onclick="switchTab('alerts')">🔔 警報管理</button>
-      <button class="tab" id="tab-btn-settings" onclick="switchTab('settings')">⚙️ API 設定</button>
-    </div>
-
-    <!-- ── TAB: GOOGLE ADS ─── -->
-    <div class="tab-content" id="tab-gads">
-      <div id="gadsLoading" style="text-align:center;padding:60px 20px;font-family:'DM Mono',monospace;font-size:13px;color:var(--text3)">
-        🔄 載入 Google Ads 數據中…
-      </div>
-      <!-- KPI Row -->
-      <div id="gadsKpi" style="display:none">
-        <div class="kpi-grid" id="gadsKpiGrid" style="margin-bottom:20px"></div>
-        <!-- Campaigns Table -->
-        <div class="table-wrapper fade-in">
-          <div class="table-header">
-            <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3)">📋 廣告活動成效（近 7 天）</div>
-            <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3)">共 <span id="gadsCount">0</span> 個活動</div>
-          </div>
-          <div style="overflow-x:auto">
-            <table>
-              <thead>
-                <tr>
-                  <th>廣告活動名稱</th>
-                  <th>狀態</th>
-                  <th>花費</th>
-                  <th>點擊數</th>
-                  <th>曝光數</th>
-                  <th>CTR</th>
-                  <th>平均 CPC</th>
-                  <th>轉換數</th>
-                  <th>轉換費用</th>
-                </tr>
-              </thead>
-              <tbody id="gadsTableBody"></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+      <button class="tab" onclick="switchTab('alerts')">⚙️ 警報管理</button>
     </div>
 
     <!-- ── TAB: ADS ─── -->
@@ -937,7 +939,7 @@
             <div class="ai-avatar">🤖</div>
             <div>
               <div class="ai-title">發現茶 AI 診斷報告</div>
-              <div class="ai-subtitle">基於真實 Meta Ads + GA4 數據 · 2026-05-22 自動生成 · 3 支廣告 × 7日流量分析</div>
+              <div class="ai-subtitle">Claude 分析引擎 · 2026-05-15 08:00 自動生成 · 涵蓋昨日 24h 數據</div>
             </div>
           </div>
           <div style="display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:11px;color:var(--tea-green)">
@@ -1007,279 +1009,86 @@
       </div>
     </div>
 
-    <!-- ── TAB: 91APP ─── -->
-    <div class="tab-content" id="tab-shop91">
-      <div style="display:flex;flex-direction:column;gap:20px">
+  </div>
+</div>
 
-        <!-- 即時銷售狀態 -->
-        <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">🛒 91APP 即時銷售狀態 · Teascovery發現茶 · 商店序號 2157</div>
-        <div class="kpi-grid">
-          <div class="kpi-card" style="border-color:rgba(255,107,53,0.2)">
-            <div class="kpi-icon">📋</div>
-            <div class="kpi-label">今日訂單數</div>
-            <div class="kpi-value" id="s91Orders">11</div>
-            <div class="kpi-delta up" id="s91OrdersDelta">↑ +10% 較前期</div>
-          </div>
-          <div class="kpi-card" style="border-color:rgba(255,107,53,0.2)">
-            <div class="kpi-icon">💵</div>
-            <div class="kpi-label">今日訂單金額</div>
-            <div class="kpi-value" id="s91Revenue">NT$13,008</div>
-            <div class="kpi-delta up" id="s91RevenueDelta">↑ +22% 較前期</div>
-          </div>
-          <div class="kpi-card" style="border-color:rgba(255,107,53,0.2)">
-            <div class="kpi-icon">📦</div>
-            <div class="kpi-label">總商品數</div>
-            <div class="kpi-value" id="s91Products">68</div>
-            <div class="kpi-delta warn">零庫存 1 件</div>
-          </div>
-          <div class="kpi-card" style="border-color:rgba(255,107,53,0.2)">
-            <div class="kpi-icon">👥</div>
-            <div class="kpi-label">總會員數</div>
-            <div class="kpi-value" id="s91Members">149,017</div>
-            <div class="kpi-delta up">累計至今日</div>
-          </div>
-          <div class="kpi-card" style="border-color:rgba(255,107,53,0.2)">
-            <div class="kpi-icon">💰</div>
-            <div class="kpi-label">平均訂單金額</div>
-            <div class="kpi-value" id="s91AvgOrder">NT$1,406</div>
-            <div class="kpi-delta up">↑ +18% 較前期</div>
-          </div>
-        </div>
-
-        <!-- 營銷詳情 -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-
-          <!-- 訂單分析 -->
-          <div class="alert-card fade-in">
-            <div class="alert-card-header">📋 訂單分析（前1天）</div>
-            <div style="padding:16px 20px;display:flex;flex-direction:column;gap:14px">
-              <div style="display:flex;justify-content:space-between;align-items:center">
-                <span style="font-size:13px;color:var(--text2)">總訂單數</span>
-                <span style="font-family:'DM Mono',monospace;font-weight:600">11 單 <span style="color:var(--tea-red);font-size:11px">▲ 10%</span></span>
-              </div>
-              <div style="display:flex;justify-content:space-between">
-                <div style="text-align:center;flex:1">
-                  <div style="font-family:'DM Mono',monospace;font-size:18px;font-weight:600;color:var(--tea-green)">5</div>
-                  <div style="font-size:11px;color:var(--text3);margin-top:2px">WEB 訂單</div>
-                  <div style="font-size:10px;color:var(--tea-red);font-family:'DM Mono',monospace">▼ 17%</div>
-                </div>
-                <div style="width:1px;background:var(--border)"></div>
-                <div style="text-align:center;flex:1">
-                  <div style="font-family:'DM Mono',monospace;font-size:18px;font-weight:600;color:var(--tea-gold)">6</div>
-                  <div style="font-size:11px;color:var(--text3);margin-top:2px">APP 訂單</div>
-                  <div style="font-size:10px;color:var(--tea-green);font-family:'DM Mono',monospace">▲ 50%</div>
-                </div>
-              </div>
-              <div style="padding-top:10px;border-top:1px solid var(--border)">
-                <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-                  <span style="font-size:12px;color:var(--text3)">WEB 訂單金額</span>
-                  <span style="font-family:'DM Mono',monospace;font-size:12px">NT$7,031</span>
-                </div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-                  <span style="font-size:12px;color:var(--text3)">APP 訂單金額</span>
-                  <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--tea-gold)">NT$10,099 <span style="color:var(--tea-green);font-size:10px">▲ 46%</span></span>
-                </div>
-                <div style="display:flex;justify-content:space-between">
-                  <span style="font-size:12px;color:var(--text3)">APP 平均訂單金額</span>
-                  <span style="font-family:'DM Mono',monospace;font-size:12px">NT$1,683</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 人流 & 會員 -->
-          <div class="alert-card fade-in">
-            <div class="alert-card-header">👥 人流 & 會員</div>
-            <div style="padding:16px 20px;display:flex;flex-direction:column;gap:14px">
-              <div>
-                <div style="font-size:11px;color:var(--text3);margin-bottom:8px;font-family:'DM Mono',monospace">工作階段</div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-                  <span style="font-size:12px;color:var(--text2)">WEB 工作階段</span>
-                  <span style="font-family:'DM Mono',monospace;font-size:12px">530 <span style="color:var(--tea-green);font-size:10px">▲ 46%</span></span>
-                </div>
-                <div style="display:flex;justify-content:space-between">
-                  <span style="font-size:12px;color:var(--text2)">APP 工作階段</span>
-                  <span style="font-family:'DM Mono',monospace;font-size:12px">37</span>
-                </div>
-              </div>
-              <div style="padding-top:10px;border-top:1px solid var(--border)">
-                <div style="font-size:11px;color:var(--text3);margin-bottom:8px;font-family:'DM Mono',monospace">會員結構</div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-                  <span style="font-size:12px;color:var(--text2)">總會員數</span>
-                  <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--tea-green)">149,017 人</span>
-                </div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-                  <span style="font-size:12px;color:var(--text2)">首次購物人數</span>
-                  <span style="font-family:'DM Mono',monospace;font-size:12px">67,072 人 (45%)</span>
-                </div>
-                <div style="display:flex;justify-content:space-between">
-                  <span style="font-size:12px;color:var(--text2)">二次以上購物</span>
-                  <span style="font-family:'DM Mono',monospace;font-size:12px">35,783 人 (24%)</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 待處理訂單 -->
-        <div class="alert-card fade-in" style="border-color:rgba(255,107,53,0.15)">
-          <div class="alert-card-header" style="display:flex;justify-content:space-between">
-            <span>⚠️ 待處理訂單作業</span>
-            <button class="btn btn-ghost" style="padding:4px 10px;font-size:10px" onclick="window.open('https://store.91app.com/CommerceCloud/Index?shopId=2157','_blank')">前往 91APP 後台 →</button>
-          </div>
-          <div style="padding:16px 20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
-            <div style="padding:12px;background:rgba(255,107,53,0.06);border-radius:8px;border:1px solid rgba(255,107,53,0.15)">
-              <div style="font-size:11px;color:var(--text3);margin-bottom:4px">待出貨 (TS)</div>
-              <div style="font-family:'DM Mono',monospace;font-size:22px;font-weight:700;color:var(--tea-red)">18</div>
-              <div style="font-size:10px;color:var(--tea-red);margin-top:2px">需立即處理</div>
-            </div>
-            <div style="padding:12px;background:var(--bg3);border-radius:8px">
-              <div style="font-size:11px;color:var(--text3);margin-bottom:4px">出貨處理中</div>
-              <div style="font-family:'DM Mono',monospace;font-size:22px;font-weight:700">0</div>
-            </div>
-            <div style="padding:12px;background:var(--bg3);border-radius:8px">
-              <div style="font-size:11px;color:var(--text3);margin-bottom:4px">退貨待處理</div>
-              <div style="font-family:'DM Mono',monospace;font-size:22px;font-weight:700">0</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- API 串接提示 -->
-        <div class="alert-card fade-in" style="border-color:rgba(184,134,11,0.2)">
-          <div class="alert-card-header">🔌 91APP API 自動同步設定</div>
-          <div style="padding:16px 20px;display:flex;flex-direction:column;gap:12px">
-            <p style="font-size:13px;color:var(--text2);line-height:1.7">目前數據為手動更新（2026-05-25）。如需自動同步真實數據，請向 91APP 客服申請 API 金鑰：</p>
-            <div style="font-family:'DM Mono',monospace;font-size:12px;color:var(--text2);display:flex;flex-direction:column;gap:6px">
-              <div>① 登入 91APP OSM 後台 → 左側「服務申請/異動」</div>
-              <div>② 申請「商店 API」服務（訂單、庫存、會員）</div>
-              <div>③ 取得 API Key 後填入下方「⚙️ API 設定」頁籤</div>
-            </div>
-            <div style="display:flex;gap:10px">
-              <button class="btn btn-ghost" onclick="window.open('https://www.91app.com/developers/getting-started/','_blank')">📖 91APP API 開發文件</button>
-              <button class="btn btn-ghost" onclick="switchTab('settings')">⚙️ 前往 API 設定</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
+<!-- API SETTINGS MODAL -->
+<div class="modal-overlay" id="apiModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">🔌 API 串接設定</div>
+      <button class="modal-close" onclick="closeApiSettings()">✕</button>
     </div>
+    <div class="modal-body">
 
-    <!-- ── TAB: SETTINGS ─── -->
-    <div class="tab-content" id="tab-settings">
-      <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:20px;padding:4px 0 32px">
-
-        <!-- Status banner -->
-        <div id="apiStatusBanner" style="display:none;padding:14px 18px;border-radius:10px;font-family:'DM Mono',monospace;font-size:12px;"></div>
-
-        <!-- FB Ads API Card -->
-        <div class="alert-card fade-in" style="border-color:rgba(124,185,138,0.2)">
-          <div class="alert-card-header" style="display:flex;align-items:center;gap:10px">
+      <!-- META ADS -->
+      <div class="modal-section-title">Meta Ads API</div>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:10px;">
             <span style="font-size:18px">📘</span>
-            <span>Facebook Ads API 設定</span>
-            <span id="fbStatusDot" style="margin-left:auto;width:8px;height:8px;border-radius:50%;background:var(--text3)"></span>
-            <span id="fbStatusText" style="font-size:10px;color:var(--text3)">未設定</span>
-          </div>
-          <div class="threshold-form">
-            <div class="form-row">
-              <label class="form-label">廣告帳戶 ID (Account ID)</label>
-              <input class="form-input" type="text" id="fbAccountId" placeholder="例：act_594992921864113">
-              <div style="font-size:10px;color:var(--text3);margin-top:4px;font-family:'DM Mono',monospace">格式：act_xxxxxxxxxxxxxxx</div>
-            </div>
-            <div class="form-row">
-              <label class="form-label">Access Token</label>
-              <div style="position:relative">
-                <input class="form-input" type="password" id="fbToken" placeholder="EAA..." style="padding-right:48px">
-                <button onclick="toggleTokenVis('fbToken',this)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:14px;color:var(--text3)">👁</button>
-              </div>
-              <div style="font-size:10px;color:var(--text3);margin-top:4px;font-family:'DM Mono',monospace">從 Meta 開發者工具取得使用者存取權杖</div>
-            </div>
-            <div style="display:flex;gap:10px;flex-wrap:wrap">
-              <button class="btn btn-primary" style="flex:1;justify-content:center;min-width:120px" onclick="saveAndSync()">💾 儲存並同步</button>
-              <button class="btn btn-ghost" style="justify-content:center" onclick="testFbConnection()">🔌 測試連線</button>
-              <button class="btn btn-ghost" style="justify-content:center;color:var(--tea-red);border-color:rgba(224,92,92,0.3)" onclick="clearCredentials()">🗑 清除憑證</button>
+            <div>
+              <div style="font-size:13px;font-weight:600">Meta Ads API</div>
+              <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:2px">廣告花費、CTR、CPC、ROAS、購買轉換</div>
             </div>
           </div>
+          <span class="api-status disconnected" id="metaStatus">○ 未連線</span>
         </div>
-
-        <!-- GA4 API Card -->
-        <div class="alert-card fade-in" style="border-color:rgba(74,153,96,0.2)">
-          <div class="alert-card-header" style="display:flex;align-items:center;gap:10px">
-            <span style="font-size:18px">📊</span>
-            <span>GA4 Data API 設定</span>
-            <span id="ga4StatusDot" style="margin-left:auto;width:8px;height:8px;border-radius:50%;background:var(--text3)"></span>
-            <span id="ga4StatusText" style="font-size:10px;color:var(--text3)">未設定</span>
-          </div>
-          <div class="threshold-form">
-            <div class="form-row">
-              <label class="form-label">GA4 資源 ID (Property ID)</label>
-              <input class="form-input" type="text" id="ga4PropertyId" placeholder="例：178180897" value="178180897">
-            </div>
-            <div class="form-row">
-              <label class="form-label">GA4 Access Token（約 1 小時有效）</label>
-              <div style="position:relative">
-                <input class="form-input" type="password" id="ga4TokenInput" placeholder="ya29...." style="padding-right:48px">
-                <button onclick="toggleTokenVis('ga4TokenInput',this)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:14px;color:var(--text3)">👁</button>
-              </div>
-              <div style="font-size:10px;color:var(--text3);margin-top:4px;font-family:'DM Mono',monospace">從 <a href="https://developers.google.com/oauthplayground" target="_blank" style="color:var(--tea-green)">OAuth Playground</a> 取得，選 analytics.readonly scope</div>
-            </div>
-            <button class="btn btn-primary" style="justify-content:center" onclick="saveGA4Token()">💾 儲存 GA4 Token</button>
-          </div>
+        <div class="form-row">
+          <label class="form-label">Access Token</label>
+          <input class="form-input" type="password" id="metaToken" placeholder="EAAxxxxxxx..." autocomplete="off">
+          <div class="form-hint">前往 <a href="https://developers.facebook.com/tools/explorer/" target="_blank">Meta Graph Explorer</a> 取得 Token，需 ads_read 權限</div>
         </div>
-
-        <!-- Google Ads API Card -->
-        <div class="alert-card fade-in" style="border-color:rgba(66,133,244,0.2)">
-          <div class="alert-card-header" style="display:flex;align-items:center;gap:10px">
-            <span style="font-size:18px">🔍</span>
-            <span>Google Ads API 設定</span>
-            <span id="gadsStatusDot" style="margin-left:auto;width:8px;height:8px;border-radius:50%;background:var(--text3)"></span>
-            <span id="gadsStatusText" style="font-size:10px;color:var(--text3)">未設定</span>
-          </div>
-          <div class="threshold-form">
-            <div class="form-row">
-              <label class="form-label">Google Ads Access Token（約 1 小時有效）</label>
-              <div style="position:relative">
-                <input class="form-input" type="password" id="gadsTokenInput" placeholder="ya29...." style="padding-right:48px">
-                <button onclick="toggleTokenVis('gadsTokenInput',this)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:14px;color:var(--text3)">👁</button>
-              </div>
-              <div style="font-size:10px;color:var(--text3);margin-top:4px;font-family:'DM Mono',monospace">從 <a href="https://developers.google.com/oauthplayground" target="_blank" style="color:var(--tea-green)">OAuth Playground</a> 取得，選 adwords scope</div>
-            </div>
-            <button class="btn btn-primary" style="justify-content:center" onclick="saveGadsToken()">💾 儲存 Google Ads Token</button>
-          </div>
+        <div class="form-row">
+          <label class="form-label">廣告帳戶 ID</label>
+          <input class="form-input" type="text" id="metaAdAccountId" placeholder="act_123456789">
+          <div class="form-hint">格式：act_ 開頭，在 Meta 廣告管理員右上角可查到</div>
         </div>
-        <div class="alert-card fade-in" style="border-color:rgba(201,168,76,0.2)">
-          <div class="alert-card-header">⚠️ 瀏覽器 CORS 設定說明</div>
-          <div style="padding:18px 20px;display:flex;flex-direction:column;gap:14px">
-            <p style="font-size:13px;color:var(--text2);line-height:1.7">本系統在瀏覽器本機運行時，需要繞過 CORS 限制才能直接呼叫 Meta API。請確認已安裝並啟用 CORS 擴充功能：</p>
-            <div style="display:flex;flex-direction:column;gap:10px">
-              <div style="padding:12px 16px;background:var(--bg3);border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:12px">
-                <div>
-                  <div style="font-size:13px;font-weight:600;margin-bottom:2px">CORS Unblock（Chrome 擴充功能）</div>
-                  <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)">點擊擴充圖示啟用後重新整理頁面，再填入憑證</div>
-                </div>
-                <button class="btn btn-ghost" style="white-space:nowrap" onclick="window.open('https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino','_blank')">前往安裝</button>
-              </div>
-              <div style="padding:12px 16px;background:var(--bg3);border-radius:8px">
-                <div style="font-size:13px;font-weight:600;margin-bottom:6px">操作步驟</div>
-                <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text2);display:flex;flex-direction:column;gap:6px">
-                  <div>① 安裝 CORS Unblock 擴充功能並點擊圖示啟用（顯示「ON」）</div>
-                  <div>② 填入下方 Account ID 與 Token，點「儲存並同步」</div>
-                  <div>③ 若出現錯誤，點「測試連線」查看詳細錯誤訊息</div>
-                  <div>④ 憑證儲存在本機 localStorage，不會上傳到任何伺服器</div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <button class="test-btn" onclick="testMetaAPI()">🧪 測試連線</button>
+          <button class="btn btn-primary" style="font-size:11px;padding:7px 16px" onclick="fetchMetaData()">⬇ 拉取廣告數據</button>
+          <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)" id="metaLastSync"></span>
         </div>
-
-        <!-- Saved creds info -->
-        <div class="alert-card fade-in" id="savedCredsCard" style="display:none">
-          <div class="alert-card-header">🔐 已儲存憑證資訊</div>
-          <div style="padding:16px 20px;font-family:'DM Mono',monospace;font-size:12px;color:var(--text2);display:flex;flex-direction:column;gap:8px" id="savedCredsInfo"></div>
-        </div>
-
       </div>
-    </div>
 
+      <!-- GA4 -->
+      <div class="modal-section-title" style="margin-top:24px">Google Analytics 4 API</div>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:18px">📊</span>
+            <div>
+              <div style="font-size:13px;font-weight:600">GA4 Data API</div>
+              <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:2px">工作階段、流量來源、轉換漏斗、跳出率</div>
+            </div>
+          </div>
+          <span class="api-status disconnected" id="ga4Status">○ 未連線</span>
+        </div>
+        <div class="form-row">
+          <label class="form-label">OAuth2 Access Token</label>
+          <input class="form-input" type="password" id="ga4Token" placeholder="ya29.xxxxx..." autocomplete="off">
+          <div class="form-hint">使用 <a href="https://developers.google.com/oauthplayground/" target="_blank">Google OAuth Playground</a>，選 Google Analytics Reporting API v4 scope 取得</div>
+        </div>
+        <div class="form-row">
+          <label class="form-label">GA4 Property ID</label>
+          <input class="form-input" type="text" id="ga4PropertyId" placeholder="properties/123456789">
+          <div class="form-hint">在 GA4 管理員 → 資源設定中查看，格式：properties/XXXXXXXXX</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <button class="test-btn" onclick="testGA4API()">🧪 測試連線</button>
+          <button class="btn btn-primary" style="font-size:11px;padding:7px 16px" onclick="fetchGA4Data()">⬇ 拉取流量數據</button>
+          <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3)" id="ga4LastSync"></span>
+        </div>
+      </div>
+
+      <!-- 說明 -->
+      <div style="margin-top:20px;padding:14px 16px;background:rgba(124,185,138,0.04);border:1px solid rgba(124,185,138,0.12);border-radius:8px;">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--tea-green);margin-bottom:6px;letter-spacing:0.06em">ℹ️  TOKEN 安全說明</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.7">Token 僅儲存於瀏覽器 sessionStorage，不會上傳至任何伺服器。
+關閉視窗後自動清除。建議使用短效 Token（有效期 1–2 小時）並限縮 API 權限範圍。</div>
+      </div>
+
+    </div>
   </div>
 </div>
 
@@ -1294,39 +1103,7 @@
 
 <div id="toast">✓ 操作成功</div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// Supabase Auth Guard
-const SUPABASE_URL = 'https://xbdrafndbcriqkkhzpup.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_w_B5Pl_v4-9hiMjRNyGoOQ_nFJlLCax';
-const { createClient } = supabase;
-const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-async function checkAuth() {
-  try {
-    const { data: { session } } = await sb.auth.getSession();
-    if (!session) {
-      window.location.href = 'login.html';
-      return;
-    }
-    const user = session.user;
-    const name = user.user_metadata?.full_name || user.email;
-    const userEl = document.getElementById('userInfo');
-    if (userEl) userEl.textContent = name;
-  } catch(e) {
-    // indexedDB error (disk full) - show page anyway, skip auth
-    console.warn('Auth check failed (possibly disk full):', e.message);
-    const userEl = document.getElementById('userInfo');
-    if (userEl) userEl.textContent = 'Guest';
-  }
-}
-checkAuth();
-
-async function handleLogout() {
-  await sb.auth.signOut();
-  window.location.href = 'login.html';
-}
-</script>
 // ─── DATA ────────────────────────────────────────────────
 const adsData = [
   { id:1, name:'發現茶桂花烏龍冷泡包', sub:'女性 28-40', status:'green', statusText:'表現優異', spend:1240, impression:148000, ctr:3.6, cpc:8.4, roas:5.2, purchase:42, action:'boost', rec:'增加 25% 預算，擴展相似受眾至女性 40-50' },
@@ -1374,39 +1151,39 @@ const bounceData = [
 const aiInsights = [
   {
     tag:'critical', tagText:'🔴 緊急',
-    title:'3 支 Meta 廣告全數 ROAS 0x — 今日零轉換，立即止損',
-    desc:'今日投放的 3 支廣告（新手代謝美瓶組、加倍回甘含量兒茶素圖片、放縱吃也能減少腹擔感）花費合計 NT$596，購買數全為 0，ROAS 均為 0x。其中花費最高的「新手代謝美瓶組」CTR 僅 1.38%，遠低於健康值 2.5%，素材吸引力嚴重不足。若繼續投放，今日將持續燒錢無回收。',
-    rec:'立即暫停全部 3 支廣告，停損今日剩餘預算。優先檢視「新手代謝美瓶組」素材主視覺，改以產品實際效果圖或顧客見證取代現有設計。',
-    recType:'red'
-  },
-  {
-    tag:'critical', tagText:'🔴 緊急',
-    title:'Google Ads 曝光量連續 4 天暴跌 76% — 廣告投遞異常',
-    desc:'Google Ads 曝光數從 5/17 高點 6,636 次急跌至 5/21 僅 1,586 次，4 天內下滑 76%。5/18（週一）單日驟降至 3,801 為首個警訊，5/20–5/21 持續探底。週末（5/15–5/17）曝光維持 6,500+ 水準，週間卻大幅萎縮，可能原因：預算耗盡、廣告審核問題、出價競爭力下降或廣告活動設定異常。',
-    rec:'立即進入 Google Ads 後台檢查：1) 預算是否已耗盡 2) 廣告是否有審核不通過 3) 出價策略是否需要調整。若預算不足，建議提高每日預算上限至少 30%。',
-    recType:'red'
-  },
-  {
-    tag:'critical', tagText:'🔴 緊急',
-    title:'FB/IG 廣告導入流量跳出率 74% — 素材與落地頁嚴重脫節',
-    desc:'GA4 數據顯示 FB/IG 廣告帶來的流量跳出率高達 74%，遠高於自然搜尋（28%）與直接輸入（22%）。廣告訴求（健康茶品功效）與落地頁內容之間存在明顯訊息落差，用戶點擊後無法快速找到廣告中承諾的資訊，導致大量流失。以今日 CTR 2.13–2.26% 推算，每 100 次點擊約有 74 人立即離開。',
-    rec:'為每支廣告建立專屬落地頁，首屏必須呼應廣告文案核心訴求。同步壓縮圖片至 1.5 秒內載入，加入明確 CTA 按鈕。',
+    title:'夏日蜜香紅茶冷泡包｜限時75折 — 素材嚴重疲勞',
+    desc:'CTR 僅 0.72%（均值 2.47%），CPC 已達 NT$24.1，且連續 4 天無購買記錄。素材訴求「夏日限定」已過曝，進入明顯疲勞期。本廣告單日花費 NT$960，維持投放代表純粹燒錢，無任何轉換回收。',
+    rec:'立即停投或換新素材主視覺（強調「冷泡免等待」具體賣點）',
     recType:'red'
   },
   {
     tag:'warning', tagText:'🟡 優化',
-    title:'GA4 工作階段上升但廣告轉換脫鉤 — 自然流量撐盤，廣告效益待救',
-    desc:'近 7 日 GA4 工作階段從 5/9 的 1,120 成長至 5/15 的 1,568（+40%），趨勢健康。然而 Meta 廣告今日轉換為零、Google Ads 曝光持續下滑，顯示流量成長主要靠自然搜尋（28% 跳出率最低）與直接輸入支撐。廣告投資報酬率極低，需立即調整策略方向。',
-    rec:'短期：暫停低效廣告，集中預算測試新素材。中期：強化自然搜尋 SEO 佈局，善用品牌直接流量做 LINE 再行銷，提升整體轉換效益。',
+    title:'FB 廣告導入流量跳出率達 74% — 素材與落地頁訊息落差',
+    desc:'廣告素材多強調「職人手採」情境，但落地頁首屏缺乏具體茶款介紹與沖泡說明，導致用戶抵達頁面後無法找到廣告中承諾的資訊，快速離開。此訊息落差是高跳出率的主因。',
+    rec:'落地頁首屏加入沖泡步驟圖示 + 壓縮圖片至 1.5s 內載入 + 加入「試用組 3 入 NT$199」CTA',
     recType:'gold'
+  },
+  {
+    tag:'warning', tagText:'🟡 優化',
+    title:'結帳頁面流失率 38% — 缺乏信任強化與優惠提示',
+    desc:'大量使用者在結帳頁面放棄，原因分析：1) 未顯示免運門檻提示，2) 缺乏首購折扣入口，3) 無安全憑證與信任標章顯示。結帳流程是轉換率最關鍵的節點，每降低 10% 流失率，等同多回收數萬元廣告費。',
+    rec:'加入「滿 NT$990 免運」Banner + 首購「TEATIME88」折扣碼提示 + SSL 信任標章',
+    recType:'gold'
+  },
+  {
+    tag:'positive', tagText:'🟢 擴大',
+    title:'桂花烏龍冷泡包｜女性 28-40 — 今日最佳廣告，建議擴量',
+    desc:'ROAS 5.2x，CTR 3.6%，CPC NT$8.4，為今日所有廣告中表現最佳。桂花香氣情境影片素材轉換率超過均值 2.3x，受眾共鳴強烈。當前受眾覆蓋尚未飽和，具備擴充空間。',
+    rec:'增加 25% 預算，擴展相似受眾至女性 40-50 族群，同步測試靜態圖片版本素材',
+    recType:'green'
   },
 ];
 
 const budgetCards = [
-  { name:'260511 #發現茶_Campaign_新手代謝美瓶組｜LLK_Teascovery_Fans', meta:'花費 NT$369，CTR 1.38%，0 購買', action:'⏸ 立即暫停', type:'pause' },
-  { name:'260520 #發現茶_Campaign_加倍回甘含量兒茶素圖片｜INT_Officeworkers', meta:'花費 NT$120，CTR 2.13%，0 購買', action:'⏸ 立即暫停', type:'pause' },
-  { name:'260520 #發現茶_Campaign_放縱吃也能減少腹擔感｜INT_Officeworkers', meta:'花費 NT$107，CTR 2.26%，0 購買', action:'⏸ 立即暫停', type:'pause' },
-  { name:'Google Ads 廣告活動 — 曝光量 5/18 起連續暴跌', meta:'5/21 曝光僅 1,586，較高點下滑 76%', action:'🔍 立即檢查', type:'down' },
+  { name:'發現茶桂花烏龍冷泡包｜女性28-40', meta:'ROAS 5.2x，穩定高效', action:'↑ 增加 25% 預算', type:'up' },
+  { name:'發現茶日月潭紅茶冷泡｜節氣主題', meta:'ROAS 4.4x，茶農故事素材有共鳴', action:'↑ 增加 15% 預算', type:'up' },
+  { name:'夏日蜜香紅茶冷泡包｜限時75折', meta:'花費 NT$960，連續 4 天無轉換', action:'⏸ 暫停廣告', type:'pause' },
+  { name:'發現茶｜茶葉禮盒精選組', meta:'落地頁問題修復後再全力投放', action:'↓ 降低 40% 預算', type:'down' },
 ];
 
 const historyData = [
@@ -1596,401 +1373,22 @@ function renderHistory() {
   `).join('');
 }
 
-// ─── GA4 API ───────────────────────────────────────────────
-const GA4_PROPERTY_ID = '178180897';
-const GA4_TOKEN = localStorage.getItem('tea_ga4_token') || '';
-let ga4Loaded = false;
-
-async function fetchGA4Data() {
-  if (ga4Loaded) return;
-  showToast('🔄 正在載入 GA4 真實數據…');
-
-  try {
-    const today = new Date();
-    const fmt = d => d.toISOString().slice(0,10);
-    const sevenDaysAgo = new Date(today); sevenDaysAgo.setDate(today.getDate()-6);
-
-    // Request 1: 7-day sessions trend
-    const trendRes = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${GA4_PROPERTY_ID}:runReport`, {
-      method: 'POST',
-      headers: { 'Authorization': `Bearer ${GA4_TOKEN}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        dateRanges: [{ startDate: fmt(sevenDaysAgo), endDate: fmt(today) }],
-        dimensions: [{ name: 'date' }],
-        metrics: [{ name: 'sessions' }, { name: 'bounceRate' }],
-        orderBys: [{ dimension: { dimensionName: 'date' } }]
-      })
-    });
-    const trendJson = await trendRes.json();
-
-    // Request 2: traffic sources
-    const sourceRes = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${GA4_PROPERTY_ID}:runReport`, {
-      method: 'POST',
-      headers: { 'Authorization': `Bearer ${GA4_TOKEN}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        dateRanges: [{ startDate: '7daysAgo', endDate: 'today' }],
-        dimensions: [{ name: 'sessionDefaultChannelGroup' }],
-        metrics: [{ name: 'sessions' }, { name: 'bounceRate' }],
-        orderBys: [{ metric: { metricName: 'sessions' }, desc: true }]
-      })
-    });
-    const sourceJson = await sourceRes.json();
-
-    // Request 3: funnel-like conversion steps
-    const funnelRes = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${GA4_PROPERTY_ID}:runReport`, {
-      method: 'POST',
-      headers: { 'Authorization': `Bearer ${GA4_TOKEN}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        dateRanges: [{ startDate: '7daysAgo', endDate: 'today' }],
-        metrics: [
-          { name: 'sessions' },
-          { name: 'addToCarts' },
-          { name: 'checkouts' },
-          { name: 'purchases' },
-          { name: 'screenPageViews' }
-        ]
-      })
-    });
-    const funnelJson = await funnelRes.json();
-
-    // ── Process trend data ──
-    if (trendJson.rows && trendJson.rows.length > 0) {
-      const newTrend = trendJson.rows.map(row => {
-        const d = row.dimensionValues[0].value;
-        const day = `${d.slice(4,6)}/${d.slice(6,8)}`;
-        const sessions = parseInt(row.metricValues[0].value);
-        return { day, sessions, roas: 0 };
-      });
-      trendData.length = 0;
-      newTrend.forEach(d => trendData.push(d));
-      // Update GA4 sessions KPI
-      const totalSessions = newTrend.reduce((s,d) => s+d.sessions, 0);
-      const avgSessions = Math.round(totalSessions / newTrend.length);
-      document.querySelectorAll('.kpi-value')[3].textContent = avgSessions.toLocaleString();
-    }
-
-    // ── Process sources ──
-    if (sourceJson.rows && sourceJson.rows.length > 0) {
-      const colors = ['#7cb98a','#c9a84c','#e8945a','#6bb5d6','#8888aa','#cc7777'];
-      const total = sourceJson.rows.reduce((s,r) => s + parseInt(r.metricValues[0].value), 0);
-      const newSources = sourceJson.rows.slice(0,5).map((row, i) => {
-        const label = row.dimensionValues[0].value;
-        const sess = parseInt(row.metricValues[0].value);
-        const bounce = Math.round(parseFloat(row.metricValues[1].value) * 100);
-        const pct = Math.round((sess/total)*100);
-        return { label, pct, bounce, color: colors[i] };
-      });
-      sourcesData.length = 0;
-      newSources.forEach(d => sourcesData.push(d));
-    }
-
-    // ── Process funnel ──
-    if (funnelJson.rows && funnelJson.rows.length > 0) {
-      const r = funnelJson.rows[0].metricValues;
-      const sessions = parseInt(r[0].value);
-      const carts = parseInt(r[1].value);
-      const checkouts = parseInt(r[2].value);
-      const purchases = parseInt(r[3].value);
-      const pageviews = parseInt(r[4].value);
-      const funnelColors = ['#7cb98a','#a8cc6d','#c9a84c','#e8945a','#e07a5a','#cc5555'];
-      const newFunnel = [
-        { label:'網頁瀏覽', value: pageviews, pct: 100, color: funnelColors[0] },
-        { label:'工作階段', value: sessions, pct: parseFloat((sessions/pageviews*100).toFixed(1)), color: funnelColors[1] },
-        { label:'加入購物車', value: carts, pct: parseFloat((carts/pageviews*100).toFixed(2)), color: funnelColors[2] },
-        { label:'結帳', value: checkouts, pct: parseFloat((checkouts/pageviews*100).toFixed(2)), color: funnelColors[3] },
-        { label:'購買完成', value: purchases, pct: parseFloat((purchases/pageviews*100).toFixed(2)), color: funnelColors[4] },
-      ].filter(d => d.value > 0);
-      funnelData.length = 0;
-      newFunnel.forEach(d => funnelData.push(d));
-    }
-
-    ga4Loaded = true;
-    renderSources();
-    renderTrendChart();
-    renderFunnel();
-    renderBounceTable();
-    showToast('✓ GA4 真實數據載入完成！');
-
-  } catch(err) {
-    showToast('⚠️ GA4 載入失敗：' + err.message);
-    // Fall back to sample data
-    renderSources();
-    renderTrendChart();
-    renderFunnel();
-    renderBounceTable();
-  }
-}
-
-// ─── GOOGLE ADS DATA (from CSV upload) ────────────────────
-const gadsImpressionData = [
-  { day:'5/15', impressions:6692 },
-  { day:'5/16', impressions:6527 },
-  { day:'5/17', impressions:6636 },
-  { day:'5/18', impressions:3801 },
-  { day:'5/19', impressions:5131 },
-  { day:'5/20', impressions:2818 },
-  { day:'5/21', impressions:1586 },
-];
-const gadsTotalImpressions = gadsImpressionData.reduce((s,d)=>s+d.impressions,0);
-const gadsAvgImpressions = Math.round(gadsTotalImpressions/gadsImpressionData.length);
-
-function renderGadsTab() {
-  document.getElementById('gadsLoading').style.display = 'none';
-  document.getElementById('gadsKpi').style.display = 'block';
-
-  // KPI cards
-  document.getElementById('gadsKpiGrid').innerHTML = `
-    <div class="kpi-card">
-      <div class="kpi-icon">📣</div>
-      <div class="kpi-label">7日總曝光</div>
-      <div class="kpi-value">${(gadsTotalImpressions/1000).toFixed(1)}K</div>
-      <div class="kpi-delta up">↑ 5/15–5/21</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-icon">📊</div>
-      <div class="kpi-label">日均曝光</div>
-      <div class="kpi-value">${gadsAvgImpressions.toLocaleString()}</div>
-      <div class="kpi-delta up">每日平均</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-icon">📅</div>
-      <div class="kpi-label">最高單日</div>
-      <div class="kpi-value">${Math.max(...gadsImpressionData.map(d=>d.impressions)).toLocaleString()}</div>
-      <div class="kpi-delta up">5/15 週五</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-icon">📉</div>
-      <div class="kpi-label">最低單日</div>
-      <div class="kpi-value" style="color:var(--tea-red)">${Math.min(...gadsImpressionData.map(d=>d.impressions)).toLocaleString()}</div>
-      <div class="kpi-delta down">5/21 週四</div>
-    </div>
-    <div class="kpi-card" style="border-color:rgba(201,168,76,0.3)">
-      <div class="kpi-icon">⚠️</div>
-      <div class="kpi-label">數據狀態</div>
-      <div class="kpi-value" style="font-size:16px;color:var(--tea-gold)">部分</div>
-      <div class="kpi-delta warn">待上傳完整報表</div>
-    </div>
-  `;
-
-  // Impression trend chart
-  document.getElementById('gadsTableBody').innerHTML = '';
-  document.getElementById('gadsCount').textContent = gadsImpressionData.length + ' 天';
-
-  // Render SVG chart
-  const chartHtml = renderGadsChart();
-  const tableWrapper = document.querySelector('#tab-gads .table-wrapper');
-  if (tableWrapper) {
-    tableWrapper.innerHTML = `
-      <div class="table-header">
-        <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3)">📈 7 日曝光趨勢（2026/5/15–5/21）</div>
-        <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--tea-gold)">⚠️ 需上傳完整 CSV 以顯示花費/點擊/轉換</div>
-      </div>
-      <div style="padding:24px">${chartHtml}</div>
-      <div style="padding:0 24px 20px">
-        <table>
-          <thead><tr>
-            <th>日期</th><th>曝光數</th><th>趨勢</th>
-          </tr></thead>
-          <tbody>${gadsImpressionData.map((d,i,arr) => {
-            const prev = i>0 ? arr[i-1].impressions : d.impressions;
-            const diff = d.impressions - prev;
-            const arrow = i===0 ? '–' : diff>0 ? `<span style="color:var(--tea-green)">↑ +${diff.toLocaleString()}</span>` : `<span style="color:var(--tea-red)">↓ ${diff.toLocaleString()}</span>`;
-            return `<tr>
-              <td style="font-family:'DM Mono',monospace">${d.day}</td>
-              <td style="font-family:'DM Mono',monospace;font-weight:600">${d.impressions.toLocaleString()}</td>
-              <td>${arrow}</td>
-            </tr>`;
-          }).join('')}</tbody>
-        </table>
-      </div>
-    `;
-  }
-}
-
-function renderGadsChart() {
-  const w=500, h=160, padL=40, padR=16, padT=10, padB=30;
-  const iw=w-padL-padR, ih=h-padT-padB;
-  const maxV = Math.max(...gadsImpressionData.map(d=>d.impressions));
-  const minV = Math.min(...gadsImpressionData.map(d=>d.impressions));
-  const sx = i => padL + (i/(gadsImpressionData.length-1))*iw;
-  const sy = v => padT + ih - ((v-minV)/(maxV-minV||1))*ih;
-  const pts = gadsImpressionData.map((d,i)=>`${sx(i)},${sy(d.impressions)}`).join(' ');
-  const area = `${padL},${padT+ih} ${pts} ${sx(gadsImpressionData.length-1)},${padT+ih}`;
-  let html = `<svg viewBox="0 0 ${w} ${h}" style="width:100%;overflow:visible">
-    <defs>
-      <linearGradient id="gadsGrad" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.3"/>
-        <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
-      </linearGradient>
-    </defs>
-    <polygon points="${area}" fill="url(#gadsGrad)"/>
-    <polyline points="${pts}" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linejoin="round"/>
-  `;
-  gadsImpressionData.forEach((d,i) => {
-    html += `<circle cx="${sx(i)}" cy="${sy(d.impressions)}" r="4" fill="#c9a84c"/>`;
-    html += `<text x="${sx(i)}" y="${sy(d.impressions)-10}" text-anchor="middle" font-size="9" fill="#c9a84c" font-family="DM Mono,monospace">${d.impressions.toLocaleString()}</text>`;
-    html += `<text x="${sx(i)}" y="${h-8}" text-anchor="middle" font-size="9" fill="#5a6a60" font-family="DM Mono,monospace">${d.day}</text>`;
-  });
-  html += '</svg>';
-  return html;
-}
-
-// ─── GOOGLE ADS API ────────────────────────────────────────
-const GADS_CUSTOMER_ID = '8343155402';
-const GADS_MANAGER_ID = '1240536372';
-const GADS_DEV_TOKEN = localStorage.getItem('tea_gads_dev_token') || 'CaVd9DIUalYiFa2bW-6ajQ';
-const GADS_TOKEN = localStorage.getItem('tea_gads_token') || '';
-let gadsLoaded = false;
-
-async function fetchGoogleAdsData() {
-  document.getElementById('gadsLoading').style.display = 'block';
-  document.getElementById('gadsLoading').innerHTML = '🔄 正在連線 Google Ads API…';
-  document.getElementById('gadsKpi').style.display = 'none';
-  showToast('🔄 正在載入 Google Ads 真實數據…');
-
-  try {
-    const query = `
-      SELECT
-        campaign.name,
-        campaign.status,
-        metrics.cost_micros,
-        metrics.clicks,
-        metrics.impressions,
-        metrics.ctr,
-        metrics.average_cpc,
-        metrics.conversions,
-        metrics.cost_per_conversion
-      FROM campaign
-      WHERE segments.date DURING LAST_7_DAYS
-        AND campaign.status != 'REMOVED'
-      ORDER BY metrics.cost_micros DESC
-      LIMIT 20
-    `;
-
-    const res = await fetch(`https://googleads.googleapis.com/v17/customers/${GADS_CUSTOMER_ID}/googleAds:search`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${GADS_TOKEN}`,
-        'developer-token': GADS_DEV_TOKEN,
-        'login-customer-id': GADS_MANAGER_ID,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ query: query.trim() })
-    });
-
-    const data = await res.json();
-
-    if (data.error) throw new Error(`(${data.error.code}) ${data.error.message}`);
-
-    const rows = data.results || [];
-
-    if (rows.length === 0) {
-      // Fall back to impression data
-      renderGadsTab();
-      showToast('⚠️ 近 7 天無廣告活動數據，顯示曝光趨勢');
-      return;
-    }
-
-    // Calculate totals
-    let totalSpend = 0, totalClicks = 0, totalImpressions = 0, totalConversions = 0;
-    rows.forEach(r => {
-      const m = r.metrics;
-      totalSpend += (m.costMicros || 0) / 1e6;
-      totalClicks += parseInt(m.clicks || 0);
-      totalImpressions += parseInt(m.impressions || 0);
-      totalConversions += parseFloat(m.conversions || 0);
-    });
-    const avgCtr = totalImpressions > 0 ? ((totalClicks/totalImpressions)*100).toFixed(2) : 0;
-    const costPerConv = totalConversions > 0 ? (totalSpend/totalConversions).toFixed(0) : 0;
-
-    // Render KPI cards
-    document.getElementById('gadsKpiGrid').innerHTML = `
-      <div class="kpi-card">
-        <div class="kpi-icon">💰</div>
-        <div class="kpi-label">7日總花費</div>
-        <div class="kpi-value">NT$${Math.round(totalSpend).toLocaleString()}</div>
-        <div class="kpi-delta up">近 7 天</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-icon">🖱️</div>
-        <div class="kpi-label">總點擊數</div>
-        <div class="kpi-value">${totalClicks.toLocaleString()}</div>
-        <div class="kpi-delta up">近 7 天</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-icon">📣</div>
-        <div class="kpi-label">總曝光數</div>
-        <div class="kpi-value">${(totalImpressions/1000).toFixed(1)}K</div>
-        <div class="kpi-delta up">近 7 天</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-icon">📊</div>
-        <div class="kpi-label">平均 CTR</div>
-        <div class="kpi-value">${avgCtr}%</div>
-        <div class="kpi-delta up">點擊率</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-icon">🎯</div>
-        <div class="kpi-label">總轉換數</div>
-        <div class="kpi-value">${Math.round(totalConversions)}</div>
-        <div class="kpi-delta ${totalConversions>0?'up':'warn'}">每次 NT$${Math.round(costPerConv)}</div>
-      </div>
-    `;
-
-    // Render campaigns table
-    document.getElementById('gadsCount').textContent = rows.length;
-    document.getElementById('gadsTableBody').innerHTML = rows.map(r => {
-      const c = r.campaign;
-      const m = r.metrics;
-      const spend = Math.round((m.costMicros||0)/1e6);
-      const clicks = parseInt(m.clicks||0);
-      const impressions = parseInt(m.impressions||0);
-      const ctr = ((m.ctr||0)*100).toFixed(2);
-      const cpc = ((m.averageCpc||0)/1e6).toFixed(1);
-      const conv = parseFloat(m.conversions||0).toFixed(1);
-      const cpa = m.costPerConversion ? (m.costPerConversion/1e6).toFixed(0) : '-';
-      const statusColor = c.status==='ENABLED' ? 'var(--tea-green)' : 'var(--tea-red)';
-      const statusText = c.status==='ENABLED' ? '✓ 投放中' : '⏸ 已暫停';
-      return `<tr>
-        <td><div style="font-weight:600;font-size:13px;max-width:220px;line-height:1.4">${c.name}</div></td>
-        <td><span style="font-family:'DM Mono',monospace;font-size:10px;color:${statusColor}">${statusText}</span></td>
-        <td><span style="font-family:'DM Mono',monospace">NT$${spend.toLocaleString()}</span></td>
-        <td><span style="font-family:'DM Mono',monospace">${clicks.toLocaleString()}</span></td>
-        <td><span style="font-family:'DM Mono',monospace">${impressions.toLocaleString()}</span></td>
-        <td><span style="font-family:'DM Mono',monospace;color:${ctr<1?'var(--tea-red)':ctr>3?'var(--tea-green)':'var(--text)'}">${ctr}%</span></td>
-        <td><span style="font-family:'DM Mono',monospace">NT$${cpc}</span></td>
-        <td><span style="font-family:'DM Mono',monospace;color:${conv>0?'var(--tea-green)':'var(--tea-red)'}">${conv}</span></td>
-        <td><span style="font-family:'DM Mono',monospace">${cpa!=='-'?`NT$${parseInt(cpa).toLocaleString()}`:'-'}</span></td>
-      </tr>`;
-    }).join('');
-
-    gadsLoaded = true;
-    document.getElementById('gadsLoading').style.display = 'none';
-    document.getElementById('gadsKpi').style.display = 'block';
-    showToast(`✓ Google Ads 真實數據載入完成！${rows.length} 個廣告活動`);
-
-  } catch(err) {
-    console.error('Google Ads API error:', err);
-    // Fall back to CSV impression data
-    renderGadsTab();
-    showToast('⚠️ API 連線中，顯示曝光趨勢數據');
-  }
-}
-
 // ─── INTERACTIONS ─────────────────────────────────────────
 function switchTab(id) {
-  const ids = ['ads','gads','ga4','shop91','ai','alerts','settings'];
   document.querySelectorAll('.tab').forEach((t,i) => {
-    t.classList.toggle('active', ids[i] === id);
+    t.classList.toggle('active', ['ads','ga4','ai','alerts'][i] === id);
   });
   document.querySelectorAll('.tab-content').forEach(c => {
     c.classList.toggle('active', c.id === 'tab-'+id);
   });
-  if (id === 'gads') { gadsLoaded = false; fetchGoogleAdsData(); }
-  if (id === 'ga4') { fetchGA4Data(); }
+  if (id === 'ga4') {
+    renderSources();
+    renderTrendChart();
+    renderFunnel();
+    renderBounceTable();
+  }
   if (id === 'ai') { renderAiInsights(); renderBudgetCards(); }
   if (id === 'alerts') renderHistory();
-  if (id === 'settings') loadSavedCreds();
 }
 
 function filterAds(filter, btn) {
@@ -2050,226 +1448,273 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2800);
 }
 
-// ─── CREDENTIAL & API FUNCTIONS ──────────────────────────
+// ─── API MODAL ─────────────────────────────────────────────
+function openApiSettings() {
+  // Restore saved tokens from sessionStorage
+  const mt = sessionStorage.getItem('meta_token');
+  const ma = sessionStorage.getItem('meta_ad_account');
+  const gt = sessionStorage.getItem('ga4_token');
+  const gp = sessionStorage.getItem('ga4_property');
+  if (mt) document.getElementById('metaToken').value = mt;
+  if (ma) document.getElementById('metaAdAccountId').value = ma;
+  if (gt) document.getElementById('ga4Token').value = gt;
+  if (gp) document.getElementById('ga4PropertyId').value = gp;
+  document.getElementById('apiModal').classList.add('open');
+}
+function closeApiSettings() {
+  document.getElementById('apiModal').classList.remove('open');
+}
+document.getElementById('apiModal').addEventListener('click', e => {
+  if (e.target === document.getElementById('apiModal')) closeApiSettings();
+});
 
-function loadSavedCreds() {
+function saveApiCreds() {
+  const mt = document.getElementById('metaToken').value.trim();
+  const ma = document.getElementById('metaAdAccountId').value.trim();
+  const gt = document.getElementById('ga4Token').value.trim();
+  const gp = document.getElementById('ga4PropertyId').value.trim();
+  if (mt) sessionStorage.setItem('meta_token', mt);
+  if (ma) sessionStorage.setItem('meta_ad_account', ma);
+  if (gt) sessionStorage.setItem('ga4_token', gt);
+  if (gp) sessionStorage.setItem('ga4_property', gp);
+}
+
+function setApiStatus(id, type, msg) {
+  const el = document.getElementById(id);
+  el.className = 'api-status ' + type;
+  const icons = { connected:'✓', disconnected:'○', error:'✕', loading:'⟳' };
+  el.textContent = (icons[type]||'') + ' ' + msg;
+}
+
+// ─── META ADS API ───────────────────────────────────────────
+async function testMetaAPI() {
+  saveApiCreds();
+  const token = sessionStorage.getItem('meta_token');
+  const adAccount = sessionStorage.getItem('meta_ad_account');
+  if (!token) { showToast('⚠️ 請先填入 Meta Access Token'); return; }
+  if (!adAccount) { showToast('⚠️ 請先填入廣告帳戶 ID'); return; }
+  setApiStatus('metaStatus','loading','測試中...');
   try {
-    const accountId = localStorage.getItem('tea_fb_account_id') || '';
-    const token = localStorage.getItem('tea_fb_token') || '';
-    const ga4Token = localStorage.getItem('tea_ga4_token') || '';
-    const ga4PropId = localStorage.getItem('tea_ga4_property_id') || '178180897';
-    const gadsToken = localStorage.getItem('tea_gads_token') || '';
-
-    if (accountId) document.getElementById('fbAccountId').value = accountId;
-    if (token) document.getElementById('fbToken').value = token;
-    if (ga4Token) document.getElementById('ga4TokenInput').value = ga4Token;
-    if (ga4PropId) document.getElementById('ga4PropertyId').value = ga4PropId;
-    if (gadsToken) document.getElementById('gadsTokenInput').value = gadsToken;
-
-    // FB status
-    const dot = document.getElementById('fbStatusDot');
-    const txt = document.getElementById('fbStatusText');
-    const card = document.getElementById('savedCredsCard');
-    const info = document.getElementById('savedCredsInfo');
-    if (accountId && token) {
-      dot.style.background = 'var(--tea-green)'; txt.style.color = 'var(--tea-green)'; txt.textContent = '已設定';
-      card.style.display = 'block';
-      info.innerHTML = `
-        <div>帳戶 ID：<span style="color:var(--tea-gold)">${accountId}</span></div>
-        <div>Token：<span style="color:var(--text3)">${token.substring(0,16)}…（已遮罩）</span></div>
-        <div style="margin-top:4px;color:var(--text3)">憑證儲存於本機瀏覽器 localStorage</div>
-      `;
-    } else {
-      dot.style.background = 'var(--text3)'; txt.style.color = 'var(--text3)'; txt.textContent = '未設定';
-      card.style.display = 'none';
-    }
-    // GA4 status
-    if (ga4Token) {
-      document.getElementById('ga4StatusDot').style.background = 'var(--tea-green)';
-      document.getElementById('ga4StatusText').style.color = 'var(--tea-green)';
-      document.getElementById('ga4StatusText').textContent = '已設定';
-    }
-    // Gads status
-    if (gadsToken) {
-      document.getElementById('gadsStatusDot').style.background = 'var(--tea-green)';
-      document.getElementById('gadsStatusText').style.color = 'var(--tea-green)';
-      document.getElementById('gadsStatusText').textContent = '已設定';
-    }
-  } catch(e) {}
-}
-
-function toggleTokenVis(id, btn) {
-  const inp = document.getElementById(id);
-  if (inp.type === 'password') { inp.type = 'text'; btn.textContent = '🙈'; }
-  else { inp.type = 'password'; btn.textContent = '👁'; }
-}
-
-function showApiStatus(msg, type) {
-  const b = document.getElementById('apiStatusBanner');
-  b.style.display = 'block';
-  const colors = {
-    success: { bg:'rgba(124,185,138,0.1)', border:'rgba(124,185,138,0.3)', color:'var(--tea-green)' },
-    error: { bg:'rgba(224,92,92,0.1)', border:'rgba(224,92,92,0.3)', color:'var(--tea-red)' },
-    info: { bg:'rgba(201,168,76,0.08)', border:'rgba(201,168,76,0.25)', color:'var(--tea-gold)' },
-  };
-  const c = colors[type] || colors.info;
-  b.style.background = c.bg;
-  b.style.border = `1px solid ${c.border}`;
-  b.style.color = c.color;
-  b.textContent = msg;
-}
-
-async function saveGA4Token() {
-  const token = document.getElementById('ga4TokenInput').value.trim();
-  const propId = document.getElementById('ga4PropertyId').value.trim();
-  if (!token) { showApiStatus('❌ 請填入 GA4 Access Token', 'error'); return; }
-  try {
-    localStorage.setItem('tea_ga4_token', token);
-    localStorage.setItem('tea_ga4_property_id', propId);
-  } catch(e) {}
-  document.getElementById('ga4StatusDot').style.background = 'var(--tea-green)';
-  document.getElementById('ga4StatusText').style.color = 'var(--tea-green)';
-  document.getElementById('ga4StatusText').textContent = '已設定';
-  showToast('✓ GA4 Token 已儲存');
-  showApiStatus('✓ GA4 Token 已儲存，切換到 GA4 頁籤即可載入真實數據', 'success');
-  ga4Loaded = false;
-}
-
-function saveGadsToken() {
-  const token = document.getElementById('gadsTokenInput').value.trim();
-  if (!token) { showApiStatus('❌ 請填入 Google Ads Access Token', 'error'); return; }
-  try { localStorage.setItem('tea_gads_token', token); } catch(e) {}
-  document.getElementById('gadsStatusDot').style.background = 'var(--tea-green)';
-  document.getElementById('gadsStatusText').style.color = 'var(--tea-green)';
-  document.getElementById('gadsStatusText').textContent = '已設定';
-  showToast('✓ Google Ads Token 已儲存');
-  showApiStatus('✓ Google Ads Token 已儲存，切換到 Google Ads 頁籤即可載入真實數據', 'success');
-  gadsLoaded = false;
-}
-
-async function saveAndSync() {
-  const accountId = document.getElementById('fbAccountId').value.trim();
-  const token = document.getElementById('fbToken').value.trim();
-
-  if (!accountId || !token) { showApiStatus('❌ 請填入帳戶 ID 與 Access Token', 'error'); return; }
-  if (!accountId.startsWith('act_')) { showApiStatus('❌ 帳戶 ID 格式不正確，應以 act_ 開頭', 'error'); return; }
-
-  try {
-    localStorage.setItem('tea_fb_account_id', accountId);
-    localStorage.setItem('tea_fb_token', token);
+    const res = await fetch(
+      `https://graph.facebook.com/v21.0/me?access_token=${encodeURIComponent(token)}`
+    );
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.message);
+    setApiStatus('metaStatus','connected','已連線 · ' + (data.name || 'OK'));
+    showToast('✓ Meta API 連線成功：' + (data.name || data.id));
   } catch(e) {
-    showApiStatus('⚠️ localStorage 不可用', 'error'); return;
+    setApiStatus('metaStatus','error','連線失敗');
+    showToast('✕ Meta API 錯誤：' + e.message.slice(0,60));
   }
+}
 
-  showApiStatus('🔄 正在從 Meta API 拉取廣告數據…', 'info');
-  loadSavedCreds();
+async function fetchMetaData() {
+  saveApiCreds();
+  const token = sessionStorage.getItem('meta_token');
+  const adAccount = sessionStorage.getItem('meta_ad_account');
+  if (!token || !adAccount) { showToast('⚠️ 請先填入 Token 與帳戶 ID'); return; }
+  setApiStatus('metaStatus','loading','拉取中...');
+  showToast('⬇ 正在從 Meta Ads API 拉取數據...');
+
+  const fields = 'name,status,spend,impressions,clicks,ctr,cpc,actions,action_values';
+  const today = new Date().toISOString().slice(0,10);
+  const url = `https://graph.facebook.com/v21.0/${adAccount}/ads?fields=${fields}&date_preset=today&access_token=${encodeURIComponent(token)}&limit=20`;
 
   try {
-    // Step 1: get all ads under account
-    const adsUrl = `https://graph.facebook.com/v19.0/${accountId}/ads?fields=id,name,adset{name,targeting}&status=ACTIVE&limit=50&access_token=${token}`;
-    const adsRes = await fetch(adsUrl);
-    const adsJson = await adsRes.json();
-    if (adsJson.error) { showApiStatus(`❌ API 錯誤 (${adsJson.error.code})：${adsJson.error.message}`, 'error'); return; }
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.message);
 
-    const adList = adsJson.data || [];
+    const ads = (data.data || []).map((ad, idx) => {
+      const spend = parseFloat(ad.spend || 0);
+      const clicks = parseInt(ad.clicks || 0);
+      const impressions = parseInt(ad.impressions || 0);
+      const ctr = parseFloat(ad.ctr || 0);
+      const cpc = parseFloat(ad.cpc || 0);
+      const purchase = (ad.actions||[]).find(a=>a.action_type==='purchase');
+      const purchaseVal = (ad.action_values||[]).find(a=>a.action_type==='purchase');
+      const purchaseCount = parseInt(purchase?.value || 0);
+      const purchaseValue = parseFloat(purchaseVal?.value || 0);
+      const roas = spend > 0 && purchaseValue > 0 ? Math.round((purchaseValue/spend)*10)/10 : 0;
+      const statusRaw = ad.status;
+      let status = 'gold', statusText = '觀察中';
+      if (roas >= 4 && ctr >= 2.5) { status = 'green'; statusText = '表現優異'; }
+      else if (roas < 1.5 || (spend > 500 && purchaseCount === 0)) { status = 'red'; statusText = '建議停投'; }
+      const action = status === 'red' ? 'pause' : status === 'green' ? 'boost' : 'watch';
+      const rec = status === 'red' ? '停投或換素材主視覺' : status === 'green' ? '增加預算，擴展相似受眾' : '持續觀察，優化落地頁';
+      return {
+        id: idx+1, name: ad.name.slice(0,22), sub: statusRaw,
+        status, statusText, spend, impression: impressions,
+        ctr: Math.round(ctr*100)/100, cpc: Math.round(cpc*10)/10,
+        roas, purchase: purchaseCount, action, rec
+      };
+    });
 
-    // Step 2: get insights per ad for today
-    const insightsUrl = `https://graph.facebook.com/v19.0/${accountId}/insights?fields=ad_id,ad_name,spend,impressions,clicks,ctr,cpc,actions,action_values,purchase_roas&date_preset=today&level=ad&limit=50&access_token=${token}`;
-    const insRes = await fetch(insightsUrl);
-    const insJson = await insRes.json();
-    if (insJson.error) { showApiStatus(`❌ Insights 錯誤 (${insJson.error.code})：${insJson.error.message}`, 'error'); return; }
-
-    const insights = insJson.data || [];
-
-    if (insights.length === 0) {
-      showApiStatus('⚠️ 今日尚無廣告投放數據（可能今日未有活躍廣告或數據延遲）', 'info');
-      showToast('⚠️ 今日暫無數據，顯示範例數據');
+    if (ads.length === 0) {
+      showToast('⚠️ 今日無廣告數據（帳戶可能無投放中廣告）');
+      setApiStatus('metaStatus','connected','連線成功，無今日數據');
       return;
     }
 
-    // Step 3: map insights to adsData format
-    const liveData = insights.map((ins, idx) => {
-      const spend = parseFloat(ins.spend || 0);
-      const impressions = parseInt(ins.impressions || 0);
-      const clicks = parseInt(ins.clicks || 0);
-      const ctr = parseFloat(ins.ctr || 0).toFixed(2) * 1;
-      const cpc = parseFloat(ins.cpc || 0).toFixed(1) * 1;
-
-      // purchases from actions
-      const actions = ins.actions || [];
-      const purchaseAction = actions.find(a => a.action_type === 'purchase' || a.action_type === 'omni_purchase');
-      const purchase = purchaseAction ? parseInt(purchaseAction.value) : 0;
-
-      // ROAS
-      const roasArr = ins.purchase_roas || [];
-      const roas = roasArr.length > 0 ? parseFloat(roasArr[0].value).toFixed(1) * 1 : 0;
-
-      // AI status logic
-      let status = 'gold', statusText = '觀察中', action = 'watch', rec = '持續觀察成效';
-      if (roas >= 4 && ctr >= 2) { status = 'green'; statusText = '表現優異'; action = 'boost'; rec = '建議增加預算擴大投放'; }
-      else if (roas >= 3) { status = 'green'; statusText = '穩定成效'; action = 'boost'; rec = '成效穩定，可適度加碼'; }
-      else if (roas < 1 || (spend > 500 && purchase === 0)) { status = 'red'; statusText = '建議停投'; action = 'pause'; rec = '花費高但無轉換，建議暫停或換素材'; }
-      else if (ctr < 1.5) { status = 'gold'; statusText = '待優化'; action = 'watch'; rec = 'CTR 偏低，建議優化廣告素材'; }
-
-      return { id: idx+1, name: ins.ad_name || `廣告 ${idx+1}`, sub: `曝光 ${impressions.toLocaleString()}`, status, statusText, spend, impression: impressions, ctr, cpc, roas, purchase, action, rec };
-    });
-
-    // Step 4: replace adsData and re-render
-    adsData.length = 0;
-    liveData.forEach(d => adsData.push(d));
+    // Update global adsData
+    adsData.splice(0, adsData.length, ...ads);
     renderAdsTable();
 
-    // Update KPI cards with real data
-    const totalSpend = liveData.reduce((s,d) => s+d.spend, 0);
-    const avgRoas = liveData.length ? (liveData.reduce((s,d) => s+d.roas, 0)/liveData.length).toFixed(1) : 0;
-    const avgCtr = liveData.length ? (liveData.reduce((s,d) => s+d.ctr, 0)/liveData.length).toFixed(2) : 0;
-    const alertCount = liveData.filter(d => d.status === 'red').length;
+    // Update KPI
+    const totalSpend = ads.reduce((s,a)=>s+a.spend,0);
+    const avgRoas = ads.filter(a=>a.roas>0).reduce((s,a)=>s+a.roas,0) / (ads.filter(a=>a.roas>0).length||1);
+    const avgCtr = ads.reduce((s,a)=>s+a.ctr,0) / ads.length;
+    const alertCount = ads.filter(a=>a.status==='red').length;
+    document.querySelector('.kpi-card:nth-child(1) .kpi-value').textContent = 'NT$' + Math.round(totalSpend).toLocaleString();
+    document.querySelector('.kpi-card:nth-child(2) .kpi-value').textContent = Math.round(avgRoas*10)/10 + 'x';
+    document.querySelector('.kpi-card:nth-child(3) .kpi-value').textContent = Math.round(avgCtr*100)/100 + '%';
+    document.querySelector('.kpi-card:nth-child(5) .kpi-value').textContent = alertCount + ' 支';
 
-    document.querySelectorAll('.kpi-value')[0].textContent = `NT$${Math.round(totalSpend).toLocaleString()}`;
-    document.querySelectorAll('.kpi-value')[1].textContent = `${avgRoas}x`;
-    document.querySelectorAll('.kpi-value')[2].textContent = `${avgCtr}%`;
-    document.querySelectorAll('.kpi-value')[4].textContent = `${alertCount} 支`;
-    document.querySelectorAll('.kpi-value')[4].style.color = alertCount > 0 ? 'var(--tea-red)' : 'var(--tea-green)';
+    const now = new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'});
+    document.getElementById('metaLastSync').textContent = '已同步 ' + now;
+    setApiStatus('metaStatus','connected','已同步 · ' + ads.length + ' 筆廣告');
+    showToast('✓ 已從 Meta API 拉取 ' + ads.length + ' 筆廣告數據');
 
-    showApiStatus(`✓ 已成功載入真實數據！共 ${liveData.length} 支廣告，今日總花費 NT$${Math.round(totalSpend).toLocaleString()}`, 'success');
-    showToast(`✓ 已載入 ${liveData.length} 支真實廣告數據`);
-
-    // Auto-switch to ads tab
-    switchTab('ads');
-
-  } catch(err) {
-    if (err.message && (err.message.includes('CORS') || err.message.includes('Failed to fetch'))) {
-      showApiStatus('❌ CORS 錯誤：請確認 CORS Unblock 已點「Start」啟動，再重新整理頁面後重試', 'error');
-    } else {
-      showApiStatus(`❌ 連線失敗：${err.message}`, 'error');
-    }
+  } catch(e) {
+    setApiStatus('metaStatus','error','拉取失敗');
+    showToast('✕ Meta 拉取失敗：' + e.message.slice(0,60));
   }
 }
 
-async function testFbConnection() {
-  const token = localStorage.getItem('tea_fb_token') || document.getElementById('fbToken').value.trim();
-  if (!token) { showApiStatus('❌ 請先填入 Access Token', 'error'); return; }
-  showApiStatus('🔄 正在測試 Token 有效性…', 'info');
+// ─── GA4 DATA API ───────────────────────────────────────────
+async function testGA4API() {
+  saveApiCreds();
+  const token = sessionStorage.getItem('ga4_token');
+  const propId = sessionStorage.getItem('ga4_property');
+  if (!token) { showToast('⚠️ 請先填入 GA4 Access Token'); return; }
+  if (!propId) { showToast('⚠️ 請先填入 Property ID'); return; }
+  setApiStatus('ga4Status','loading','測試中...');
   try {
-    const res = await fetch(`https://graph.facebook.com/v19.0/me?access_token=${token}`);
+    // Call GA4 Data API with a minimal runReport
+    const propertyId = propId.replace('properties/','');
+    const res = await fetch(
+      `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + token,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          dateRanges: [{ startDate: 'today', endDate: 'today' }],
+          metrics: [{ name: 'sessions' }],
+          limit: 1
+        })
+      }
+    );
     const data = await res.json();
-    if (data.error) {
-      showApiStatus(`❌ Token 無效 (${data.error.code})：${data.error.message}`, 'error');
-    } else {
-      showApiStatus(`✓ Token 有效！帳號：${data.name || data.id}`, 'success');
-    }
-  } catch(err) {
-    showApiStatus(`❌ 無法連線：${err.message}。請確認 CORS Unblock 擴充功能已啟用`, 'error');
+    if (data.error) throw new Error(data.error.message || data.error.status);
+    setApiStatus('ga4Status','connected','已連線');
+    showToast('✓ GA4 API 連線成功');
+  } catch(e) {
+    setApiStatus('ga4Status','error','連線失敗');
+    showToast('✕ GA4 錯誤：' + e.message.slice(0,60));
   }
 }
 
-function clearCredentials() {
-  try { localStorage.removeItem('tea_fb_account_id'); localStorage.removeItem('tea_fb_token'); } catch(e) {}
-  document.getElementById('fbAccountId').value = '';
-  document.getElementById('fbToken').value = '';
-  loadSavedCreds();
-  showToast('✓ 已清除所有憑證');
-  showApiStatus('憑證已清除', 'info');
+async function fetchGA4Data() {
+  saveApiCreds();
+  const token = sessionStorage.getItem('ga4_token');
+  const propId = sessionStorage.getItem('ga4_property');
+  if (!token || !propId) { showToast('⚠️ 請先填入 Token 與 Property ID'); return; }
+  setApiStatus('ga4Status','loading','拉取中...');
+  showToast('⬇ 正在從 GA4 Data API 拉取數據...');
+  const propertyId = propId.replace('properties/','');
+  const call = (body) => fetch(
+    `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`,
+    { method:'POST', headers:{ 'Authorization':'Bearer '+token, 'Content-Type':'application/json' }, body: JSON.stringify(body) }
+  ).then(r=>r.json());
+
+  try {
+    // 1. Sessions today
+    const sessRes = await call({
+      dateRanges:[{startDate:'today',endDate:'today'}],
+      metrics:[{name:'sessions'},{name:'bounceRate'},{name:'conversions'}]
+    });
+    if (sessRes.error) throw new Error(sessRes.error.message);
+    const row0 = sessRes.rows?.[0]?.metricValues || [];
+    const todaySessions = parseInt(row0[0]?.value || 0);
+    const bounceRate = parseFloat(row0[1]?.value || 0);
+    document.querySelector('.kpi-card:nth-child(4) .kpi-value').textContent = todaySessions.toLocaleString();
+
+    // 2. Sessions by channel (last 7 days)
+    const chanRes = await call({
+      dateRanges:[{startDate:'7daysAgo',endDate:'today'}],
+      dimensions:[{name:'sessionDefaultChannelGroup'}],
+      metrics:[{name:'sessions'},{name:'bounceRate'}],
+      orderBys:[{metric:{metricName:'sessions'},desc:true}],
+      limit:6
+    });
+    if (!chanRes.error && chanRes.rows) {
+      const total = chanRes.rows.reduce((s,r)=>s+parseInt(r.metricValues[0].value),0);
+      const colors = ['#7cb98a','#c9a84c','#e8945a','#6bb5d6','#8888aa','#aa88bb'];
+      const newSources = chanRes.rows.map((r,i)=>({
+        label: r.dimensionValues[0].value,
+        pct: Math.round(parseInt(r.metricValues[0].value)/total*100),
+        bounce: Math.round(parseFloat(r.metricValues[1].value)*100),
+        color: colors[i]||'#666'
+      }));
+      sourcesData.splice(0, sourcesData.length, ...newSources);
+    }
+
+    // 3. 7-day trend
+    const trendRes = await call({
+      dateRanges:[{startDate:'6daysAgo',endDate:'today'}],
+      dimensions:[{name:'date'}],
+      metrics:[{name:'sessions'}],
+      orderBys:[{dimension:{dimensionName:'date'}}]
+    });
+    if (!trendRes.error && trendRes.rows) {
+      const newTrend = trendRes.rows.map(r => {
+        const d = r.dimensionValues[0].value; // YYYYMMDD
+        return {
+          day: (parseInt(d.slice(4,6)))+'/'+parseInt(d.slice(6,8)),
+          sessions: parseInt(r.metricValues[0].value),
+          roas: trendData[trendRes.rows.indexOf(r)]?.roas || 0
+        };
+      });
+      trendData.splice(0, trendData.length, ...newTrend);
+    }
+
+    // 4. Bounce table by page
+    const pageRes = await call({
+      dateRanges:[{startDate:'7daysAgo',endDate:'today'}],
+      dimensions:[{name:'pagePath'}],
+      metrics:[{name:'sessions'},{name:'bounceRate'},{name:'averageSessionDuration'}],
+      orderBys:[{metric:{metricName:'bounceRate'},desc:true}],
+      limit:5
+    });
+    if (!pageRes.error && pageRes.rows) {
+      const newBounce = pageRes.rows.map(r => ({
+        path: r.dimensionValues[0].value.slice(0,32),
+        sessions: parseInt(r.metricValues[0].value),
+        bounce: Math.round(parseFloat(r.metricValues[1].value)*100)+'%',
+        dwell: Math.round(parseFloat(r.metricValues[2].value))+'s',
+        issue: '依實際數據診斷'
+      }));
+      bounceData.splice(0, bounceData.length, ...newBounce);
+    }
+
+    const now = new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'});
+    document.getElementById('ga4LastSync').textContent = '已同步 ' + now;
+    setApiStatus('ga4Status','connected','已同步 · 今日 '+todaySessions.toLocaleString()+' 工作階段');
+    showToast('✓ GA4 數據已更新（工作階段、流量來源、趨勢）');
+
+    // Re-render GA4 tab if open
+    const ga4Tab = document.getElementById('tab-ga4');
+    if (ga4Tab.classList.contains('active')) {
+      renderSources(); renderTrendChart(); renderFunnel(); renderBounceTable();
+    }
+
+  } catch(e) {
+    setApiStatus('ga4Status','error','拉取失敗');
+    showToast('✕ GA4 拉取失敗：' + e.message.slice(0,60));
+  }
 }
 
 // ─── SCROLL ANIMATION ─────────────────────────────────────
@@ -2279,45 +1724,8 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // ─── INIT ──────────────────────────────────────────────────
-try {
-  renderAdsTable();
-} catch(e) {
-  console.error('renderAdsTable error:', e);
-  document.body.innerHTML += `<div style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:20px;border:2px solid red;z-index:9999;font-family:monospace;font-size:12px;max-width:80vw;word-break:break-all">❌ renderAdsTable error: ${e.message}<br>${e.stack}</div>`;
-}
-
-// Dynamic date
-try {
-  document.getElementById('todayDate').textContent = '📅 ' + new Date().toLocaleDateString('zh-TW', {year:'numeric',month:'2-digit',day:'2-digit'}).replace(/\//g,'-');
-} catch(e) { console.error('date error:', e); }
-
-// KPI + tabs init check
-try {
-  const kpiGrid = document.querySelector('.kpi-grid');
-  const tabs = document.querySelector('.tabs');
-  const tabContents = document.querySelectorAll('.tab-content');
-  console.log('KPI grid:', !!kpiGrid, '| Tabs:', !!tabs, '| Tab contents:', tabContents.length);
-  if (!kpiGrid || !tabs) {
-    throw new Error('Critical DOM elements missing: kpi-grid=' + !!kpiGrid + ', tabs=' + !!tabs);
-  }
-} catch(e) {
-  console.error('DOM check error:', e);
-}
-
-// Auto-notify if creds saved
-try {
-  const savedId = localStorage.getItem('tea_fb_account_id');
-  const savedToken = localStorage.getItem('tea_fb_token');
-
-  if (savedId && savedToken) {
-    document.getElementById('fbAccountId').value = savedId;
-    document.getElementById('fbToken').value = savedToken;
-    setTimeout(() => showToast('🔄 自動同步 Meta 廣告數據中…'), 600);
-    setTimeout(async () => { await saveAndSync(); }, 1200);
-  } else {
-    setTimeout(() => showToast('👋 請至「⚙️ API 設定」填入 Meta Ads 憑證'), 1000);
-  }
-} catch(e) { console.error('init creds error:', e); }
+document.getElementById('dateBadge').textContent = '📅 ' + new Date().toLocaleDateString('zh-TW');
+renderAdsTable();
 </script>
 </body>
 </html>
