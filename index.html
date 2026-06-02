@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- v2.1 2026-06-02 -->
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
@@ -2280,10 +2279,30 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // ─── INIT ──────────────────────────────────────────────────
-renderAdsTable();
+try {
+  renderAdsTable();
+} catch(e) {
+  console.error('renderAdsTable error:', e);
+  document.body.innerHTML += `<div style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:20px;border:2px solid red;z-index:9999;font-family:monospace;font-size:12px;max-width:80vw;word-break:break-all">❌ renderAdsTable error: ${e.message}<br>${e.stack}</div>`;
+}
 
 // Dynamic date
-document.getElementById('todayDate').textContent = '📅 ' + new Date().toLocaleDateString('zh-TW', {year:'numeric',month:'2-digit',day:'2-digit'}).replace(/\//g,'-');
+try {
+  document.getElementById('todayDate').textContent = '📅 ' + new Date().toLocaleDateString('zh-TW', {year:'numeric',month:'2-digit',day:'2-digit'}).replace(/\//g,'-');
+} catch(e) { console.error('date error:', e); }
+
+// KPI + tabs init check
+try {
+  const kpiGrid = document.querySelector('.kpi-grid');
+  const tabs = document.querySelector('.tabs');
+  const tabContents = document.querySelectorAll('.tab-content');
+  console.log('KPI grid:', !!kpiGrid, '| Tabs:', !!tabs, '| Tab contents:', tabContents.length);
+  if (!kpiGrid || !tabs) {
+    throw new Error('Critical DOM elements missing: kpi-grid=' + !!kpiGrid + ', tabs=' + !!tabs);
+  }
+} catch(e) {
+  console.error('DOM check error:', e);
+}
 
 // Auto-notify if creds saved
 try {
@@ -2298,7 +2317,7 @@ try {
   } else {
     setTimeout(() => showToast('👋 請至「⚙️ API 設定」填入 Meta Ads 憑證'), 1000);
   }
-} catch(e) {}
+} catch(e) { console.error('init creds error:', e); }
 </script>
 </body>
 </html>
