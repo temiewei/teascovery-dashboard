@@ -805,6 +805,7 @@
       <button class="tab active" onclick="switchTab('ads')">📊 FB 廣告診斷</button>
       <button class="tab" onclick="switchTab('gads')">🔍 Google Ads</button>
       <button class="tab" onclick="switchTab('ga4')">🌐 GA4 流量分析</button>
+      <button class="tab" onclick="switchTab('shop91')">🛒 91APP 電商</button>
       <button class="tab" onclick="switchTab('ai')">🤖 AI 每日診斷</button>
       <button class="tab" onclick="switchTab('alerts')">🔔 警報管理</button>
       <button class="tab" id="tab-btn-settings" onclick="switchTab('settings')">⚙️ API 設定</button>
@@ -1006,6 +1007,163 @@
       </div>
     </div>
 
+    <!-- ── TAB: 91APP ─── -->
+    <div class="tab-content" id="tab-shop91">
+      <div style="display:flex;flex-direction:column;gap:20px">
+
+        <!-- 即時銷售狀態 -->
+        <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">🛒 91APP 即時銷售狀態 · Teascovery發現茶 · 商店序號 2157</div>
+        <div class="kpi-grid">
+          <div class="kpi-card" style="border-color:rgba(255,107,53,0.2)">
+            <div class="kpi-icon">📋</div>
+            <div class="kpi-label">今日訂單數</div>
+            <div class="kpi-value" id="s91Orders">11</div>
+            <div class="kpi-delta up" id="s91OrdersDelta">↑ +10% 較前期</div>
+          </div>
+          <div class="kpi-card" style="border-color:rgba(255,107,53,0.2)">
+            <div class="kpi-icon">💵</div>
+            <div class="kpi-label">今日訂單金額</div>
+            <div class="kpi-value" id="s91Revenue">NT$13,008</div>
+            <div class="kpi-delta up" id="s91RevenueDelta">↑ +22% 較前期</div>
+          </div>
+          <div class="kpi-card" style="border-color:rgba(255,107,53,0.2)">
+            <div class="kpi-icon">📦</div>
+            <div class="kpi-label">總商品數</div>
+            <div class="kpi-value" id="s91Products">68</div>
+            <div class="kpi-delta warn">零庫存 1 件</div>
+          </div>
+          <div class="kpi-card" style="border-color:rgba(255,107,53,0.2)">
+            <div class="kpi-icon">👥</div>
+            <div class="kpi-label">總會員數</div>
+            <div class="kpi-value" id="s91Members">149,017</div>
+            <div class="kpi-delta up">累計至今日</div>
+          </div>
+          <div class="kpi-card" style="border-color:rgba(255,107,53,0.2)">
+            <div class="kpi-icon">💰</div>
+            <div class="kpi-label">平均訂單金額</div>
+            <div class="kpi-value" id="s91AvgOrder">NT$1,406</div>
+            <div class="kpi-delta up">↑ +18% 較前期</div>
+          </div>
+        </div>
+
+        <!-- 營銷詳情 -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+
+          <!-- 訂單分析 -->
+          <div class="alert-card fade-in">
+            <div class="alert-card-header">📋 訂單分析（前1天）</div>
+            <div style="padding:16px 20px;display:flex;flex-direction:column;gap:14px">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:13px;color:var(--text2)">總訂單數</span>
+                <span style="font-family:'DM Mono',monospace;font-weight:600">11 單 <span style="color:var(--tea-red);font-size:11px">▲ 10%</span></span>
+              </div>
+              <div style="display:flex;justify-content:space-between">
+                <div style="text-align:center;flex:1">
+                  <div style="font-family:'DM Mono',monospace;font-size:18px;font-weight:600;color:var(--tea-green)">5</div>
+                  <div style="font-size:11px;color:var(--text3);margin-top:2px">WEB 訂單</div>
+                  <div style="font-size:10px;color:var(--tea-red);font-family:'DM Mono',monospace">▼ 17%</div>
+                </div>
+                <div style="width:1px;background:var(--border)"></div>
+                <div style="text-align:center;flex:1">
+                  <div style="font-family:'DM Mono',monospace;font-size:18px;font-weight:600;color:var(--tea-gold)">6</div>
+                  <div style="font-size:11px;color:var(--text3);margin-top:2px">APP 訂單</div>
+                  <div style="font-size:10px;color:var(--tea-green);font-family:'DM Mono',monospace">▲ 50%</div>
+                </div>
+              </div>
+              <div style="padding-top:10px;border-top:1px solid var(--border)">
+                <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+                  <span style="font-size:12px;color:var(--text3)">WEB 訂單金額</span>
+                  <span style="font-family:'DM Mono',monospace;font-size:12px">NT$7,031</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+                  <span style="font-size:12px;color:var(--text3)">APP 訂單金額</span>
+                  <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--tea-gold)">NT$10,099 <span style="color:var(--tea-green);font-size:10px">▲ 46%</span></span>
+                </div>
+                <div style="display:flex;justify-content:space-between">
+                  <span style="font-size:12px;color:var(--text3)">APP 平均訂單金額</span>
+                  <span style="font-family:'DM Mono',monospace;font-size:12px">NT$1,683</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 人流 & 會員 -->
+          <div class="alert-card fade-in">
+            <div class="alert-card-header">👥 人流 & 會員</div>
+            <div style="padding:16px 20px;display:flex;flex-direction:column;gap:14px">
+              <div>
+                <div style="font-size:11px;color:var(--text3);margin-bottom:8px;font-family:'DM Mono',monospace">工作階段</div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+                  <span style="font-size:12px;color:var(--text2)">WEB 工作階段</span>
+                  <span style="font-family:'DM Mono',monospace;font-size:12px">530 <span style="color:var(--tea-green);font-size:10px">▲ 46%</span></span>
+                </div>
+                <div style="display:flex;justify-content:space-between">
+                  <span style="font-size:12px;color:var(--text2)">APP 工作階段</span>
+                  <span style="font-family:'DM Mono',monospace;font-size:12px">37</span>
+                </div>
+              </div>
+              <div style="padding-top:10px;border-top:1px solid var(--border)">
+                <div style="font-size:11px;color:var(--text3);margin-bottom:8px;font-family:'DM Mono',monospace">會員結構</div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+                  <span style="font-size:12px;color:var(--text2)">總會員數</span>
+                  <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--tea-green)">149,017 人</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+                  <span style="font-size:12px;color:var(--text2)">首次購物人數</span>
+                  <span style="font-family:'DM Mono',monospace;font-size:12px">67,072 人 (45%)</span>
+                </div>
+                <div style="display:flex;justify-content:space-between">
+                  <span style="font-size:12px;color:var(--text2)">二次以上購物</span>
+                  <span style="font-family:'DM Mono',monospace;font-size:12px">35,783 人 (24%)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 待處理訂單 -->
+        <div class="alert-card fade-in" style="border-color:rgba(255,107,53,0.15)">
+          <div class="alert-card-header" style="display:flex;justify-content:space-between">
+            <span>⚠️ 待處理訂單作業</span>
+            <button class="btn btn-ghost" style="padding:4px 10px;font-size:10px" onclick="window.open('https://store.91app.com/CommerceCloud/Index?shopId=2157','_blank')">前往 91APP 後台 →</button>
+          </div>
+          <div style="padding:16px 20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+            <div style="padding:12px;background:rgba(255,107,53,0.06);border-radius:8px;border:1px solid rgba(255,107,53,0.15)">
+              <div style="font-size:11px;color:var(--text3);margin-bottom:4px">待出貨 (TS)</div>
+              <div style="font-family:'DM Mono',monospace;font-size:22px;font-weight:700;color:var(--tea-red)">18</div>
+              <div style="font-size:10px;color:var(--tea-red);margin-top:2px">需立即處理</div>
+            </div>
+            <div style="padding:12px;background:var(--bg3);border-radius:8px">
+              <div style="font-size:11px;color:var(--text3);margin-bottom:4px">出貨處理中</div>
+              <div style="font-family:'DM Mono',monospace;font-size:22px;font-weight:700">0</div>
+            </div>
+            <div style="padding:12px;background:var(--bg3);border-radius:8px">
+              <div style="font-size:11px;color:var(--text3);margin-bottom:4px">退貨待處理</div>
+              <div style="font-family:'DM Mono',monospace;font-size:22px;font-weight:700">0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- API 串接提示 -->
+        <div class="alert-card fade-in" style="border-color:rgba(184,134,11,0.2)">
+          <div class="alert-card-header">🔌 91APP API 自動同步設定</div>
+          <div style="padding:16px 20px;display:flex;flex-direction:column;gap:12px">
+            <p style="font-size:13px;color:var(--text2);line-height:1.7">目前數據為手動更新（2026-05-25）。如需自動同步真實數據，請向 91APP 客服申請 API 金鑰：</p>
+            <div style="font-family:'DM Mono',monospace;font-size:12px;color:var(--text2);display:flex;flex-direction:column;gap:6px">
+              <div>① 登入 91APP OSM 後台 → 左側「服務申請/異動」</div>
+              <div>② 申請「商店 API」服務（訂單、庫存、會員）</div>
+              <div>③ 取得 API Key 後填入下方「⚙️ API 設定」頁籤</div>
+            </div>
+            <div style="display:flex;gap:10px">
+              <button class="btn btn-ghost" onclick="window.open('https://www.91app.com/developers/getting-started/','_blank')">📖 91APP API 開發文件</button>
+              <button class="btn btn-ghost" onclick="switchTab('settings')">⚙️ 前往 API 設定</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- ── TAB: SETTINGS ─── -->
     <div class="tab-content" id="tab-settings">
       <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:20px;padding:4px 0 32px">
@@ -1145,16 +1303,22 @@ const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function checkAuth() {
-  const { data: { session } } = await sb.auth.getSession();
-  if (!session) {
-    window.location.href = 'login.html';
-    return;
+  try {
+    const { data: { session } } = await sb.auth.getSession();
+    if (!session) {
+      window.location.href = 'login.html';
+      return;
+    }
+    const user = session.user;
+    const name = user.user_metadata?.full_name || user.email;
+    const userEl = document.getElementById('userInfo');
+    if (userEl) userEl.textContent = name;
+  } catch(e) {
+    // indexedDB error (disk full) - show page anyway, skip auth
+    console.warn('Auth check failed (possibly disk full):', e.message);
+    const userEl = document.getElementById('userInfo');
+    if (userEl) userEl.textContent = 'Guest';
   }
-  // Show user info in header
-  const user = session.user;
-  const name = user.user_metadata?.full_name || user.email;
-  const userEl = document.getElementById('userInfo');
-  if (userEl) userEl.textContent = name;
 }
 checkAuth();
 
@@ -1815,7 +1979,7 @@ async function fetchGoogleAdsData() {
 
 // ─── INTERACTIONS ─────────────────────────────────────────
 function switchTab(id) {
-  const ids = ['ads','gads','ga4','ai','alerts','settings'];
+  const ids = ['ads','gads','ga4','shop91','ai','alerts','settings'];
   document.querySelectorAll('.tab').forEach((t,i) => {
     t.classList.toggle('active', ids[i] === id);
   });
